@@ -8,38 +8,40 @@ namespace MarbleRace.Scripts
     public class SpinObstacle : UdonSharpBehaviour
     {
         [SerializeField] private float spinSpeed = 1f;
-
-        [UdonSynced] private float syncedRotation;
         
         private Rigidbody2D rigidbody2d;
-        
+
+        [UdonSynced] private float syncedRotation;
+
         void Start()
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
-            rigidbody2d.angularVelocity = -spinSpeed;
+            rigidbody2d.angularVelocity = spinSpeed;
             transform.rotation = Quaternion.identity;
-            _SyncRotation();
+            _SendSyncedRotation();
         }
 
         public override void OnDeserialization()
         {
-            _SyncRotation();
+            SyncRotation();
         }
 
-        public void _SyncRotation()
+        public void _SendSyncedRotation()
         {
             if (rigidbody2d == null) return;
+            
             if (Networking.IsMaster)
             {
                 syncedRotation = rigidbody2d.rotation;
                 RequestSerialization();
-            }
-            else
-            {
-                rigidbody2d.SetRotation(syncedRotation);
-            }
+            } else SyncRotation();
             
-            SendCustomEventDelayedSeconds(nameof(_SyncRotation), UnityEngine.Random.Range(10f, 30f));
+            SendCustomEventDelayedSeconds(nameof(_SendSyncedRotation), 30f);
+        }
+
+        private void SyncRotation()
+        {
+            rigidbody2d.SetRotation(syncedRotation);
         }
     }
 }
