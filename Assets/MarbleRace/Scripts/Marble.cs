@@ -23,6 +23,11 @@ namespace MarbleRace.Scripts
                 Debug.LogWarning("Marble race: Non-master tried to send rigidbody variables.");
             }
 
+            SerializeRigidbodyData();
+        }
+
+        private void SerializeRigidbodyData()
+        {
             position = rigidbody.position;
             velocity = rigidbody.velocity;
             RequestSerialization();
@@ -33,6 +38,12 @@ namespace MarbleRace.Scripts
             if (Networking.IsMaster) return; // Master already has the values
             rigidbody.position = position;
             rigidbody.velocity = velocity;
+        }
+
+        public void _Respawn(Vector2 spawnLocation)
+        {
+            rigidbody.position = spawnLocation;
+            rigidbody.velocity = Vector2.zero;
         }
     }
 }

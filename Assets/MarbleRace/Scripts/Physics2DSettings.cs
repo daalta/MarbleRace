@@ -11,8 +11,8 @@ namespace MarbleRace.Scripts
     {
         [Header("VRChat ignores Physics 2D project settings. This script will allow you to set them anyway..")]
         [SerializeField] private float velocityThreshold = 0.15f;
-    
-        void Start()
+
+        private void Start()
         {
             Physics2D.velocityThreshold = velocityThreshold;
         }
