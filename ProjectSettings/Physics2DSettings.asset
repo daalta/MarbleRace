@@ -8,7 +8,7 @@ Physics2DSettings:
   m_DefaultMaterial: {fileID: 6200000, guid: d6ab3e31f1711884c96e797205081c62, type: 2}
   m_VelocityIterations: 8
   m_PositionIterations: 3
-  m_VelocityThreshold: 1
+  m_VelocityThreshold: 0.2
   m_MaxLinearCorrection: 0.2
   m_MaxAngularCorrection: 8
   m_MaxTranslationSpeed: 100
