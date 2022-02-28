@@ -10,7 +10,19 @@ namespace MarbleRace.Scripts
         [SerializeField] private new Rigidbody2D rigidbody;
         [UdonSynced] private Vector2 position;
         [UdonSynced] private Vector2 velocity;
+        [UdonSynced, FieldChangeCallback(nameof(SimulatePhysics))] private bool simulatePhysics;
 
+        private bool SimulatePhysics
+        {
+            get => simulatePhysics;
+            set
+            {
+                if (value == simulatePhysics) return;
+                simulatePhysics = value;
+                rigidbody.simulated = value;
+            }
+        }
+        
         private void OnCollisionEnter2D(Collision2D other)
         {
             SendRigidbody();
@@ -23,10 +35,10 @@ namespace MarbleRace.Scripts
                 Debug.LogWarning("Marble race: Non-master tried to send rigidbody variables.");
             }
 
-            SerializeRigidbodyData();
+            _SerializeRigidbodyData();
         }
 
-        private void SerializeRigidbodyData()
+        public void _SerializeRigidbodyData()
         {
             position = rigidbody.position;
             velocity = rigidbody.velocity;
@@ -42,8 +54,15 @@ namespace MarbleRace.Scripts
 
         public void _Respawn(Vector2 spawnLocation)
         {
+            if (!Networking.IsMaster) return;
             rigidbody.position = spawnLocation;
             rigidbody.velocity = Vector2.zero;
+        }
+
+        public void _SetSimulatePhysics(bool b)
+        {
+            if (!Networking.IsMaster) return;
+            SimulatePhysics = b;
         }
     }
 }

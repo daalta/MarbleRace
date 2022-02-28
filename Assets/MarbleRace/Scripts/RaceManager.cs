@@ -45,6 +45,8 @@ namespace MarbleRace.Scripts
             {
                 var marble = marbles[i];
                 marble._Respawn(spawnLocations[i]);
+                marble._SetSimulatePhysics(true);
+                marble._SerializeRigidbodyData();
             }
         }
     }
