@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 930179139994419113}
   - component: {fileID: 4271509673487069196}
   - component: {fileID: 2063638341412684998}
-  - component: {fileID: 820237334852373679}
-  - component: {fileID: 820237334852374352}
   - component: {fileID: 2524510087707843315}
+  - component: {fileID: 7969519904661041161}
+  - component: {fileID: 1386687974069877620}
   m_Layer: 0
   m_Name: Marble
   m_TagString: Untagged
@@ -82,43 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!50 &820237334852373679
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550415879400596755}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.25
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!58 &820237334852374352
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550415879400596755}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: d6ab3e31f1711884c96e797205081c62, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.025000002
 --- !u!114 &2524510087707843315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,3 +95,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowCollisionOwnershipTransfer: 0
+--- !u!54 &7969519904661041161
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550415879400596755}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &1386687974069877620
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550415879400596755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.025000002
+  m_Center: {x: 9.313226e-10, y: 0, z: 0}
