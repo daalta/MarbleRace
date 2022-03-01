@@ -6,6 +6,6 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MarbleRace
+  m_Name: MarblePhysics
   friction: 0.5
-  bounciness: 0.75
+  bounciness: 0.8
