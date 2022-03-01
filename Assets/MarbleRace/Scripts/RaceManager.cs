@@ -49,5 +49,10 @@ namespace MarbleRace.Scripts
                 marble._SerializeRigidbodyData();
             }
         }
+
+        public void _Finish(Marble marble)
+        {
+            Debug.Log($"Marble Race: {marble.gameObject.name} has finished!");
+        }
     }
 }
