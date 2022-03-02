@@ -96,6 +96,7 @@ namespace MarbleRace.Scripts
                 RacePlacement[i] = (sbyte) -1;
             }
             RequestSerialization();
+            OnRacePlacementChanged();
         }
 
         [PublicAPI]
