@@ -3,6 +3,7 @@ using TMPro;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
+using VRC.SDKBase;
 
 namespace MarbleRace.Scripts
 {
@@ -39,8 +40,8 @@ namespace MarbleRace.Scripts
             {
                 if (HasBettingStarted == value) return;
                 hasBettingStarted = value;
-                if (value) Debug.Log("Marble Race: Betting has " + (HasBettingStarted ? "started!" : "closed."));
-                _StartBettingTimer();
+                if (value) _StartBettingTimer();
+                if (Networking.IsMaster) RequestSerialization();
                 //animator.SetBool("HasBettingStarted", HasBettingStarted);
             }
         }

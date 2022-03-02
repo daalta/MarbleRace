@@ -109,8 +109,8 @@ namespace MarbleRace.Scripts
         public void _StartPreRace()
         {
             if (!Networking.IsMaster) return;
-            RespawnMarbles();
             FreezeMarbles(true);
+            RespawnMarbles();
             ResetBetScreens();
             betScreens[0].HasBettingStarted = true;
             isGameRunning = true;
