@@ -63,7 +63,7 @@ namespace MarbleRace.Scripts
             textPayout.text = colorPrefix + payout + "$";
         }
 
-        private void _ClearPlacement()
+        public void _ClearPlacement()
         {
             textPlacement.text = "";
             textPayout.text = "";

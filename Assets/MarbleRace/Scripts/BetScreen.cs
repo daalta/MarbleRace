@@ -41,7 +41,6 @@ namespace MarbleRace.Scripts
                 if (HasBettingStarted == value) return;
                 hasBettingStarted = value;
                 if (value) _StartBettingTimer();
-                if (Networking.IsMaster) RequestSerialization();
                 //animator.SetBool("HasBettingStarted", HasBettingStarted);
             }
         }
@@ -121,6 +120,19 @@ namespace MarbleRace.Scripts
         {
             if (!HasBettingStarted) statusText.text = "Not<br>started";
             else statusText.text = IsLocked ? "<i>Bets<br>closed</i>" : $"{bettingTimer}<br>Bet!!";
+        }
+
+        public void _Reset()
+        {
+            HasBettingStarted = false;
+            IsLocked = false;
+            bet = (sbyte) -1;
+            foreach (var button in betButtons)
+            {
+                button._ClearPlacement();
+                button.HasPlacedBet = false;
+            }
+            RequestSerialization();
         }
     }
 }

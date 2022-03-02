@@ -122,8 +122,7 @@ namespace MarbleRace.Scripts
         {
             foreach (var betScreen in betScreens)
             {
-                betScreen.HasBettingStarted = false;
-                betScreen.IsLocked = false;
+                betScreen._Reset();
             }
         }
 
