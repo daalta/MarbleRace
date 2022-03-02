@@ -102,9 +102,8 @@ namespace MarbleRace.Scripts
             FreezeMarbles(true);
             RespawnMarbles();
             ResetBetScreens();
-            betScreens[0].HasBettingStarted = true;
+            betScreens[0]._StartBettingWithoutTimer();
             isGameRunning = true;
-            SendCustomEventDelayedSeconds(nameof(_StartRace), 12f);
             RequestSerialization();
         }
 
@@ -187,7 +186,7 @@ namespace MarbleRace.Scripts
         {
             Debug.Log("Marble Race: Top 3 have finished, race is over!");
             isGameRunning = false;
-            SendCustomEventDelayedSeconds(nameof(_StartPreRace), 10);
+            // TODO End betting if it hasn't already concluded
         }
 
         private int GetPayout(sbyte placement)
@@ -201,9 +200,15 @@ namespace MarbleRace.Scripts
             }
         }
 
-        public void _OnBetPlaced()
+        public void OnBetPlaced()
         {
             Debug.Log("Marble Race: A player has placed a bet.");
+            SendCustomEventDelayedSeconds(nameof(_StartRace), 10);
+            if (!Networking.IsMaster) SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(OnBetPlaced));
+            else
+            {
+                betScreens[0]._StartBetting();
+            }
         }
     }
 }

@@ -12,53 +12,62 @@ namespace MarbleRace.Scripts
     {
         [SerializeField] private BetButton[] betButtons;
         [SerializeField] private TextMeshProUGUI statusText;
-        //[SerializeField] private Animator animator;
-        
-        /// <summary>
-        /// Whether bets can be placed.
-        /// </summary>
-        [UdonSynced, FieldChangeCallback(nameof(IsLocked))] private bool isLocked = false;
+        [SerializeField] private Animator animator;
 
-        public bool IsLocked
+        /// <summary>
+        /// 0 = Hidden
+        /// 1 = Betting open (no timer)
+        /// 2 = Betting open (timer running)
+        /// 3 = Betting over (timer ran out), show payout if available
+        /// </summary>
+        [UdonSynced, FieldChangeCallback(nameof(State))]private int state;
+
+        public int State
         {
-            get => isLocked;
+            get => state;
             set
             {
-                if (IsLocked == value) return;
-                isLocked = value;
-                LockAllButtons(IsLocked);
-                UpdateStatusText();
+                if (State == value) return;
+                state = value;
+                OnStateChanged();
             }
         }
 
-        [UdonSynced, FieldChangeCallback(nameof(HasBettingStarted))] private bool hasBettingStarted = false;
-        
-        public bool HasBettingStarted
+        private void OnStateChanged()
         {
-            get => hasBettingStarted;
-            set
-            {
-                if (HasBettingStarted == value) return;
-                hasBettingStarted = value;
-                if (value) _StartBettingTimer();
-                if (Networking.IsMaster) RequestSerialization();
-                //animator.SetBool("HasBettingStarted", HasBettingStarted);
-            }
+            animator.SetInteger("State", state);
+            var isBettingClosed = state == 0 || state == 3; 
+            LockAllButtons(isBettingClosed);
+            UpdateStatusText();
+            if (state == 2) _StartBettingTimer();
+            if (Networking.IsMaster) RequestSerialization();
         }
 
         private int bettingTimer;
 
-        public void _StartBettingTimer()
+        private void _StartBettingTimer()
         {
-            if (bettingTimer == 0) bettingTimer = 10;
-            else bettingTimer--;
+            if (bettingTimer > 0)
+            {
+                Debug.LogWarning("Marble Race: Betting timer was started while it was already running!");
+                return;
+            }
+
+            bettingTimer = 10;
+            _UpdateBettingTimer();
+        }
+        
+        public void _UpdateBettingTimer()
+        {
+
+            bettingTimer--;
             UpdateStatusText();
             if (bettingTimer == 0)
             {
-                IsLocked = true;
+                if (Networking.IsMaster) State = 3;
                 return;
             }
-            SendCustomEventDelayedSeconds(nameof(_StartBettingTimer), 1f);
+            SendCustomEventDelayedSeconds(nameof(_UpdateBettingTimer), 1f);
         }
 
         private RaceManager raceManager;
@@ -81,13 +90,13 @@ namespace MarbleRace.Scripts
 
         public void _Press(sbyte index)
         {
-            if (!HasBettingStarted)
+            if (State == 0)
             {
                 Debug.Log("Marble Race: Bets have not yet started, but player tried to bet.");
                 return;
             }
             
-            if (IsLocked)
+            if (State == 3)
             {
                 Debug.Log("Marble Race: Betting is locked, but player tried to bet.");
                 return;
@@ -101,7 +110,7 @@ namespace MarbleRace.Scripts
             bet = index;
             betButtons[index].HasPlacedBet = true;
 
-            raceManager._OnBetPlaced();
+            raceManager.OnBetPlaced();
         }
 
         private void LockAllButtons(bool b)
@@ -119,14 +128,13 @@ namespace MarbleRace.Scripts
 
         private void UpdateStatusText()
         {
-            if (!HasBettingStarted) statusText.text = "Not<br>started";
-            else statusText.text = IsLocked ? "<i>Bets<br>closed</i>" : $"{bettingTimer}<br>Bet!!";
+            if (State == 0) statusText.text = "Not<br>started";
+            else statusText.text = State == 3 ? "<i>Bets<br>closed</i>" : $"{bettingTimer-1}<br>Bet!!";
         }
 
         public void _Reset()
         {
-            HasBettingStarted = false;
-            IsLocked = false;
+            State = 0;
             bet = (sbyte) -1;
             foreach (var button in betButtons)
             {
@@ -134,6 +142,26 @@ namespace MarbleRace.Scripts
                 button.HasPlacedBet = false;
             }
             RequestSerialization();
+        }
+
+        public void _StartBettingWithoutTimer()
+        {
+            if (State != 0)
+            {
+                Debug.LogWarning("Marble Race: Bet screen was not properly reset!");
+            }
+
+            State = 1;
+        }
+
+        public void _StartBetting()
+        {
+            if (state >= 2)
+            {
+                Debug.LogWarning("Marble Race: Bet screen was in an improper state when betting was started.");
+            }
+            
+            State = 2;
         }
     }
 }
