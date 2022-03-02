@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace MarbleRace.Scripts
 {
-    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None), RequireComponent(typeof(Button))]
     public class BetButton : UdonSharpBehaviour
     {
         [SerializeField] private Animator animator;
@@ -37,7 +37,7 @@ namespace MarbleRace.Scripts
 
         public void _SetIsLocked(bool b)
         {
-            animator.SetBool("IsLocked", b);
+            GetComponent<Button>().interactable = !b;
         }
     }
 }
