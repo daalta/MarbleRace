@@ -110,9 +110,19 @@ namespace MarbleRace.Scripts
         /// After betting is concluded, the race begins.
         /// </summary>
         [PublicAPI]
-        public void _StartPreRace()
+        public void StartPreRace()
         {
-            if (!Networking.IsMaster) return;
+            if (IsGameRunning)
+            {
+                Debug.LogWarning("Marble Race: Already running!");
+                return;
+            }
+
+            if (!Networking.IsMaster)
+            {
+                SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(StartPreRace));
+                return;
+            }
             FreezeMarbles(true);
             RespawnMarbles();
             ResetBetScreens();
