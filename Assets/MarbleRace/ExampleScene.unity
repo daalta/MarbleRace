@@ -2355,6 +2355,12 @@ PrefabInstance:
       propertyPath: publicVariablesUnityEngineObjects.Array.data[2]
       value: 
       objectReference: {fileID: 1323888010}
+    - target: {fileID: 6906529916941692649, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_text
+      value: "Payout\n<color=#FFDF00>1<size=50%>st</size> \t 3$</color>\n<color=#C0C0C0>2<size=50%>nd</size>\t
+        2$</color>\n<color=orange>3<size=50%>rd</size>\t 1$</color>\n<color=red>4-6<size=50%>th</size>\t-1$"
+      objectReference: {fileID: 0}
     - target: {fileID: 7523001833926951621, guid: c4fd90117b9d3e24daf72ec5133a6e82,
         type: 3}
       propertyPath: m_RootOrder
