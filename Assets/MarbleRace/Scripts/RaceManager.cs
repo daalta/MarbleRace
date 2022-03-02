@@ -13,6 +13,7 @@ namespace MarbleRace.Scripts
         [SerializeField] private Marble[] marbles;
         [SerializeField] private Spawn spawn;
         [SerializeField] private Finish finish;
+        [SerializeField] private BetScreen[] betScreens;
 
         /// <summary>
         /// Placement of each marble at the end of the race.
@@ -25,7 +26,23 @@ namespace MarbleRace.Scripts
         private void Start()
         {
             CheckReferences();
+            SetupUI();
             if (Networking.IsMaster) InitPlacement();
+        }
+
+        /// <summary>
+        /// Gets the marble names and colors, and applies them to the in-game racing UI.
+        /// </summary>
+        private void SetupUI()
+        {
+            for (var marbleIndex = 0; marbleIndex < marbles.Length; marbleIndex++)
+            {
+                var marble = marbles[marbleIndex];
+                foreach (var betScreen in betScreens)
+                {
+                    betScreen._Setup(marbleIndex, marble.name, marble._GetColor());
+                }
+            }
         }
 
         private void CheckReferences()

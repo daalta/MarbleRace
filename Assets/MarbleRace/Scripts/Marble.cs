@@ -7,6 +7,7 @@ namespace MarbleRace.Scripts
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class Marble : UdonSharpBehaviour
     {
+        [SerializeField, Tooltip("Color of the ball. Used for UI stuff.")] private Color UIColor;
         [SerializeField] private new Rigidbody2D rigidbody;
         [UdonSynced] private Vector2 position;
         [UdonSynced] private Vector2 velocity;
@@ -63,6 +64,11 @@ namespace MarbleRace.Scripts
         {
             if (!Networking.IsMaster) return;
             SimulatePhysics = b;
+        }
+
+        public Color _GetColor()
+        {
+            return UIColor;
         }
     }
 }
