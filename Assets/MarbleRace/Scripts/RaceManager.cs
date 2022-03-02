@@ -11,20 +11,41 @@ namespace MarbleRace.Scripts
     public class RaceManager : UdonSharpBehaviour
     {
         [SerializeField] private Marble[] marbles;
-        private Vector2[] spawnLocations;
+        [SerializeField] private Spawn spawn;
+        [SerializeField] private Finish finish;
+
+        /// <summary>
+        /// Placement of each marble at the end of the race.
+        /// Length equals amount of marbles.
+        /// First index indicates 1st place, and so on.
+        /// -1 indicates that a marble has not yet finished the race.
+        /// </summary>
+        [UdonSynced] private sbyte[] racePlacement;
 
         private void Start()
         {
-            SaveMarbleSpawns();
+            CheckReferences();
+            if (Networking.IsMaster) InitPlacement();
         }
 
-        private void SaveMarbleSpawns()
+        private void CheckReferences()
         {
-            spawnLocations = new Vector2[marbles.Length];
-            for (var i = 0; i < marbles.Length; i++)
+            if (marbles == null || marbles.Length == 0)
+                Debug.LogError("Marble Race: Marble array in RaceManager is null");
+            if (spawn == null)
+                Debug.LogError("Marble Race: Spawn reference in RaceManager is null");
+            if (finish == null)
+                Debug.LogError("Marble Race: Finish reference in RaceManager is null");
+        }
+
+        private void InitPlacement()
+        {
+            racePlacement = new sbyte[marbles.Length];
+            for (var i = 0; i < racePlacement.Length; i++)
             {
-                spawnLocations[i] = marbles[i].transform.position;
+                racePlacement[i] = (sbyte) -1;
             }
+            RequestSerialization();
         }
 
         [PublicAPI]
@@ -44,15 +65,36 @@ namespace MarbleRace.Scripts
             for (var i = 0; i < marbles.Length; i++)
             {
                 var marble = marbles[i];
-                marble._Respawn(spawnLocations[i]);
+                marble._Respawn(spawn._GetMarbleSpawn(i));
                 marble._SetSimulatePhysics(true);
                 marble._SerializeRigidbodyData();
             }
         }
+        
+        private sbyte GetMarbleIndex(Marble marble)
+        {
+            for (var i = 0; i < marbles.Length; i++)
+            {
+                if (marbles[i] == marble) return (sbyte) i;
+            }
+            return 0;
+        }
 
         public void _Finish(Marble marble)
         {
-            Debug.Log($"Marble Race: {marble.gameObject.name} has finished!");
+            var marbleIndex = GetMarbleIndex(marble);
+
+            var placement = (sbyte) -1;
+            for (var i = 0; i < racePlacement.Length; i++)
+            {
+                if (racePlacement[i] == marbleIndex) return; // Marble already finished the race
+                if (racePlacement[i] != -1) continue;
+                placement = (sbyte) i;
+                racePlacement[placement] = (sbyte) marbleIndex;
+                break;
+            }
+            
+            Debug.Log($"Marble Race: {marble.gameObject.name} has finished in place {placement}!");
         }
     }
 }

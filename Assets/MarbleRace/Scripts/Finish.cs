@@ -1,6 +1,6 @@
-﻿using System;
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
+using VRC.SDKBase;
 
 namespace MarbleRace.Scripts
 {
@@ -21,6 +21,7 @@ namespace MarbleRace.Scripts
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (!Networking.IsMaster) return;
             var marble = other.GetComponent<Marble>();
             if (marble == null)
             {
