@@ -40,7 +40,7 @@ namespace MarbleRace.Scripts
             for (sbyte marbleIndex = 0; marbleIndex < RacePlacement.Length; marbleIndex++)
             {
                 var placement = RacePlacement[marbleIndex];
-                var payout = GetPayout(marbleIndex);
+                var payout = GetPayout(placement);
                 foreach (var betScreen in betScreens)
                 {
                     betScreen._SetPlacement(marbleIndex, placement, payout);
