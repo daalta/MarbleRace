@@ -61,7 +61,7 @@ namespace MarbleRace.Scripts
             CheckReferences();
             if (Networking.IsMaster) InitPlacement();
             SetupUI();
-            StartPreRace();
+            _StartPreRace();
         }
 
         /// <summary>
@@ -104,8 +104,11 @@ namespace MarbleRace.Scripts
         /// Start the initial betting before the race begins.
         /// After betting is concluded, the race begins.
         /// </summary>
-        private void StartPreRace()
+        public void _StartPreRace()
         {
+            if (!Networking.IsMaster) return;
+            RespawnMarbles();
+            FreezeMarbles(true);
             ResetBetScreens();
             betScreens[0].HasBettingStarted = true;
             SendCustomEventDelayedSeconds(nameof(_StartRace), 12f);
@@ -124,7 +127,7 @@ namespace MarbleRace.Scripts
         {
             // if (isRaceRunning) return; TODO For debugging this is disabled.
             if (!Networking.IsMaster) return;
-            RespawnMarbles();
+            FreezeMarbles(false);
             InitPlacement();
         }
         
@@ -135,8 +138,16 @@ namespace MarbleRace.Scripts
             {
                 var marble = marbles[i];
                 marble._Respawn(spawn._GetMarbleSpawn(i));
-                marble._SetSimulatePhysics(true);
                 marble._SerializeRigidbodyData();
+            }
+        }
+
+        private void FreezeMarbles(bool b)
+        {
+            for (var i = 0; i < marbles.Length; i++)
+            {
+                var marble = marbles[i];
+                marble._SetSimulatePhysics(!b);
             }
         }
         
@@ -164,8 +175,20 @@ namespace MarbleRace.Scripts
             }
 
             Debug.Log($"Marble Race: {marble.gameObject.name} has finished in place {placement}!");
+
+            if (placement == RacePlacement.Length - 1)
+            {
+                EndRace();
+            }
+            
             RequestSerialization();
             OnRacePlacementChanged();
+        }
+
+        private void EndRace()
+        {
+            Debug.Log("Marble Race: Race finished!");
+            SendCustomEventDelayedSeconds(nameof(_StartPreRace), 10);
         }
 
         private int GetPayout(sbyte placement)
