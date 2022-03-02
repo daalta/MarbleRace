@@ -107,6 +107,7 @@ namespace MarbleRace.Scripts
             else
             {
                 RespawnMarbles();
+                InitPlacement();
             }
         }
         

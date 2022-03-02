@@ -54,17 +54,16 @@ namespace MarbleRace.Scripts
         {
             if (place < 0)
             {
-                textPlacement.text = "";
-                textPayout.text = "";
+                _ClearPlacement();
                 return;
             }
             
-            var colorPrefix = hasPlacedBet ? "<color=white>" : "<color=grey>";
+            var colorPrefix = !hasPlacedBet ? "<color=grey>" : payout > 0 ? "<color=yellow>": "<color=red>" ;
             textPlacement.text = colorPrefix + GetPlacementString(place);
             textPayout.text = colorPrefix + payout + "$";
         }
 
-        public void _ClearPlacement()
+        private void _ClearPlacement()
         {
             textPlacement.text = "";
             textPayout.text = "";
