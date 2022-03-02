@@ -21,13 +21,46 @@ namespace MarbleRace.Scripts
         /// First index indicates 1st place, and so on.
         /// -1 indicates that a marble has not yet finished the race.
         /// </summary>
-        [UdonSynced] private sbyte[] racePlacement;
+        [UdonSynced, FieldChangeCallback(nameof(RacePlacement))] private sbyte[] racePlacement;
+
+        public sbyte[] RacePlacement
+        {
+            get => racePlacement;
+            set
+            {
+                Debug.Log("Marble Race: Placements have changed");
+                var oldPlacement = RacePlacement;
+                racePlacement = value;
+                OnRacePlacementChanged();
+            }
+        }
+
+        private void OnRacePlacementChanged()
+        {
+            for (sbyte marbleIndex = 0; marbleIndex < RacePlacement.Length; marbleIndex++)
+            {
+                var placement = RacePlacement[marbleIndex];
+                /* // Uncomment to improve performance?
+                if (oldPlacements != null)
+                {
+                    var oldPlacement = oldPlacements[marbleIndex];
+                    var placementIsUnchanged = placement != oldPlacement;
+                    if (placementIsUnchanged) continue;
+                }*/
+
+                var payout = GetPayout(placement);
+                foreach (var betScreen in betScreens)
+                {
+                    betScreen._Finish(marbleIndex, placement, payout);
+                }
+            }
+        }
 
         private void Start()
         {
             CheckReferences();
-            SetupUI();
             if (Networking.IsMaster) InitPlacement();
+            SetupUI();
         }
 
         /// <summary>
@@ -57,10 +90,10 @@ namespace MarbleRace.Scripts
 
         private void InitPlacement()
         {
-            racePlacement = new sbyte[marbles.Length];
-            for (var i = 0; i < racePlacement.Length; i++)
+            RacePlacement = new sbyte[marbles.Length];
+            for (var i = 0; i < RacePlacement.Length; i++)
             {
-                racePlacement[i] = (sbyte) -1;
+                RacePlacement[i] = (sbyte) -1;
             }
             RequestSerialization();
         }
@@ -102,23 +135,18 @@ namespace MarbleRace.Scripts
             var marbleIndex = GetMarbleIndex(marble);
 
             var placement = (sbyte) -1;
-            for (var i = 0; i < racePlacement.Length; i++)
+            for (var i = 0; i < RacePlacement.Length; i++)
             {
-                if (racePlacement[i] == marbleIndex) return; // Marble already finished the race
-                if (racePlacement[i] != -1) continue;
+                if (RacePlacement[i] == marbleIndex) return; // Marble already finished the race
+                if (RacePlacement[i] != -1) continue;
                 placement = (sbyte) i;
-                racePlacement[placement] = (sbyte) marbleIndex;
+                RacePlacement[placement] = (sbyte) marbleIndex;
                 break;
             }
 
-            var payout = GetPayout(placement);
-
-            foreach (var betScreen in betScreens)
-            {
-                betScreen._Finish(marbleIndex, placement, payout);
-            }
-            
             Debug.Log($"Marble Race: {marble.gameObject.name} has finished in place {placement}!");
+            RequestSerialization();
+            OnRacePlacementChanged();
         }
 
         private int GetPayout(sbyte placement)

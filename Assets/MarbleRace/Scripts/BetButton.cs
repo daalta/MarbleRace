@@ -17,12 +17,6 @@ namespace MarbleRace.Scripts
         
         private BetScreen betScreen;
         private sbyte marbleIndex;
-        
-        /// <summary>
-        /// Placement of this ball. 0 is the first ball, 1 is the second, etc.
-        /// -1 means the ball has not finished yet.
-        /// </summary>
-        private sbyte placement = -1;
 
         private bool hasPlacedBet;
 
@@ -58,10 +52,22 @@ namespace MarbleRace.Scripts
         
         public void _SetPlacement(sbyte place, int payout)
         {
-            placement = place;
+            if (place < 0)
+            {
+                textPlacement.text = "";
+                textPayout.text = "";
+                return;
+            }
+            
             var colorPrefix = hasPlacedBet ? "<color=white>" : "<color=grey>";
             textPlacement.text = colorPrefix + GetPlacementString(place);
             textPayout.text = colorPrefix + payout + "$";
+        }
+
+        public void _ClearPlacement()
+        {
+            textPlacement.text = "";
+            textPayout.text = "";
         }
 
         private string GetPlacementString(sbyte n)
