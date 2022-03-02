@@ -57,7 +57,6 @@ namespace MarbleRace.Scripts
                 _ClearPlacement();
                 return;
             }
-            
             var colorPrefix = !hasPlacedBet ? "<color=grey>" : payout > 0 ? "<color=yellow>": "<color=red>" ;
             textPlacement.text = colorPrefix + GetPlacementString(place);
             textPayout.text = colorPrefix + payout + "$";

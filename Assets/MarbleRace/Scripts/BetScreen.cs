@@ -41,6 +41,7 @@ namespace MarbleRace.Scripts
                 if (HasBettingStarted == value) return;
                 hasBettingStarted = value;
                 if (value) _StartBettingTimer();
+                if (Networking.IsMaster) RequestSerialization();
                 //animator.SetBool("HasBettingStarted", HasBettingStarted);
             }
         }
@@ -111,7 +112,7 @@ namespace MarbleRace.Scripts
             }
         }
 
-        public void _Finish(sbyte marbleIndex, sbyte placement, int payout)
+        public void _SetPlacement(sbyte marbleIndex, sbyte placement, int payout)
         {
             betButtons[marbleIndex]._SetPlacement(placement, payout);
         }
