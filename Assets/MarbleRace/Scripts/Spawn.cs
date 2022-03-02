@@ -7,6 +7,7 @@ namespace MarbleRace.Scripts
     public class Spawn : UdonSharpBehaviour
     {
         [SerializeField] private Transform[] marbleSpawns;
+        [SerializeField] private Animator startGameButton;
 
         private void Start()
         {

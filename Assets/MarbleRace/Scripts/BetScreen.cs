@@ -129,7 +129,8 @@ namespace MarbleRace.Scripts
         private void UpdateStatusText()
         {
             if (State == 0) statusText.text = "Not<br>started";
-            else statusText.text = State == 3 ? "<i>Bets<br>closed</i>" : $"{bettingTimer-1}<br>Bet!!";
+            if (State == 1) statusText.text = "Click<br>to bet!";
+            else statusText.text = State == 3 ? "<i>Bets<br>closed</i>" : $"{bettingTimer-1}s<br>to bet";
         }
 
         public void _Reset()

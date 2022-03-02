@@ -14,6 +14,8 @@ namespace MarbleRace.Scripts
         [SerializeField] private Spawn spawn;
         [SerializeField] private Finish finish;
         [SerializeField] private BetScreen[] betScreens;
+        [SerializeField] private Animator startGameButton;
+        
 
         /// <summary>
         /// Placement of each marble at the end of the race.
@@ -23,7 +25,18 @@ namespace MarbleRace.Scripts
         /// </summary>
         [UdonSynced, FieldChangeCallback(nameof(RacePlacement))] private sbyte[] racePlacement;
 
-        [UdonSynced] private bool isGameRunning;
+        [UdonSynced, FieldChangeCallback(nameof(IsGameRunning))] private bool isGameRunning;
+
+        private bool IsGameRunning
+        {
+            get => isGameRunning;
+            set
+            {
+                if (IsGameRunning == value) return;
+                isGameRunning = value;
+                startGameButton.SetBool("IsGameRunning", IsGameRunning);
+            }
+        }
 
         public sbyte[] RacePlacement
         {
@@ -53,7 +66,6 @@ namespace MarbleRace.Scripts
             CheckReferences();
             if (Networking.IsMaster) InitPlacement();
             SetupUI();
-            _StartPreRace();
         }
 
         /// <summary>
@@ -92,10 +104,12 @@ namespace MarbleRace.Scripts
             OnRacePlacementChanged();
         }
 
+        
         /// <summary>
         /// Start the initial betting before the race begins.
         /// After betting is concluded, the race begins.
         /// </summary>
+        [PublicAPI]
         public void _StartPreRace()
         {
             if (!Networking.IsMaster) return;
@@ -103,7 +117,7 @@ namespace MarbleRace.Scripts
             RespawnMarbles();
             ResetBetScreens();
             betScreens[0]._StartBettingWithoutTimer();
-            isGameRunning = true;
+            IsGameRunning = true;
             RequestSerialization();
         }
 
@@ -161,7 +175,7 @@ namespace MarbleRace.Scripts
             Debug.Log(marbleIndex + " finished at " + placement);
             RacePlacement[marbleIndex] = placement;
 
-            if (placement > 2 && isGameRunning) EndRace();
+            if (placement > 2 && IsGameRunning) EndRace();
             
             RequestSerialization();
             OnRacePlacementChanged();
@@ -185,7 +199,8 @@ namespace MarbleRace.Scripts
         private void EndRace()
         {
             Debug.Log("Marble Race: Top 3 have finished, race is over!");
-            isGameRunning = false;
+            IsGameRunning = false;
+            RequestSerialization();
             // TODO End betting if it hasn't already concluded
         }
 
