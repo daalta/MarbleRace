@@ -116,7 +116,8 @@ namespace MarbleRace.Scripts
 
         public void _OnBetPlaced()
         {
-            Debug.Log("Marble Race: A player has placed a bet.");
+            Debug.Log("Marble Race: A player has placed a bet. Starting race because betting ain't done yet.");
+            StartRace();
         }
     }
 }
