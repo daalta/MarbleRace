@@ -11,6 +11,7 @@ namespace MarbleRace.Scripts
         [SerializeField] private new Rigidbody2D rigidbody;
         [UdonSynced] private Vector2 position;
         [UdonSynced] private Vector2 velocity;
+        [UdonSynced] private float angularVelocity;
         [UdonSynced, FieldChangeCallback(nameof(SimulatePhysics))] private bool simulatePhysics;
 
         private bool SimulatePhysics
@@ -43,6 +44,7 @@ namespace MarbleRace.Scripts
         {
             position = rigidbody.position;
             velocity = rigidbody.velocity;
+            angularVelocity = rigidbody.angularVelocity;
             RequestSerialization();
         }
 
@@ -51,6 +53,7 @@ namespace MarbleRace.Scripts
             if (Networking.IsMaster) return; // Master already has the values
             rigidbody.position = position;
             rigidbody.velocity = velocity;
+            rigidbody.angularVelocity = angularVelocity;
         }
 
         public void _Respawn(Vector2 spawnLocation)
@@ -58,6 +61,7 @@ namespace MarbleRace.Scripts
             if (!Networking.IsMaster) return;
             rigidbody.position = spawnLocation;
             rigidbody.velocity = Vector2.zero;
+            rigidbody.angularVelocity = 0;
             // If physics are off, respawn won't work unless transform.position is also set.
             transform.position = new Vector3(spawnLocation.x, spawnLocation.y, transform.position.z);
         }
