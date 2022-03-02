@@ -1709,6 +1709,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 932586673}
     m_Modifications:
+    - target: {fileID: 369959637, guid: c4fd90117b9d3e24daf72ec5133a6e82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0226
+      objectReference: {fileID: 0}
+    - target: {fileID: 369959637, guid: c4fd90117b9d3e24daf72ec5133a6e82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1592610949, guid: c4fd90117b9d3e24daf72ec5133a6e82, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1877,6 +1885,16 @@ PrefabInstance:
     - target: {fileID: 4032760120064486976, guid: c4fd90117b9d3e24daf72ec5133a6e82,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435242539348940754, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4435242539348940754, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5463528092349533150, guid: c4fd90117b9d3e24daf72ec5133a6e82,
