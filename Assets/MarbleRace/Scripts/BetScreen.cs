@@ -52,11 +52,11 @@ namespace MarbleRace.Scripts
 
             if (bet != -1) // Undo previous bet, if betting is still unlocked
             {
-                betButtons[bet]._HasPlacedBet(false);
+                betButtons[bet].HasPlacedBet = false;
             }
             
             bet = index;
-            betButtons[index]._HasPlacedBet(true);
+            betButtons[index].HasPlacedBet = true;
 
             raceManager._OnBetPlaced();
         }
@@ -67,6 +67,11 @@ namespace MarbleRace.Scripts
             {
                 button._SetIsLocked(b);
             }
+        }
+
+        public void _Finish(sbyte marbleIndex, sbyte placement, int payout)
+        {
+            betButtons[marbleIndex]._SetPlacement(placement, payout);
         }
     }
 }

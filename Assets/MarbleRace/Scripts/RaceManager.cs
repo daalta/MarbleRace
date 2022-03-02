@@ -110,8 +110,26 @@ namespace MarbleRace.Scripts
                 racePlacement[placement] = (sbyte) marbleIndex;
                 break;
             }
+
+            var payout = GetPayout(placement);
+
+            foreach (var betScreen in betScreens)
+            {
+                betScreen._Finish(marbleIndex, placement, payout);
+            }
             
             Debug.Log($"Marble Race: {marble.gameObject.name} has finished in place {placement}!");
+        }
+
+        private int GetPayout(sbyte placement)
+        {
+            switch (placement)
+            {
+                case 0: return 4;
+                case 1: return 3;
+                case 2: return 2;
+                default: return 0;
+            }
         }
 
         public void _OnBetPlaced()

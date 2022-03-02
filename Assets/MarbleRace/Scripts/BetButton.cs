@@ -10,15 +10,36 @@ namespace MarbleRace.Scripts
     public class BetButton : UdonSharpBehaviour
     {
         [SerializeField] private Animator animator;
-        [SerializeField] private TextMeshProUGUI text;
+        [SerializeField] private TextMeshProUGUI textName;
+        [SerializeField] private TextMeshProUGUI textPlacement;
+        [SerializeField] private TextMeshProUGUI textPayout;
         [SerializeField] private Image backgroundImage;
         
         private BetScreen betScreen;
         private sbyte marbleIndex;
+        
+        /// <summary>
+        /// Placement of this ball. 0 is the first ball, 1 is the second, etc.
+        /// -1 means the ball has not finished yet.
+        /// </summary>
+        private sbyte placement = -1;
+
+        private bool hasPlacedBet;
+
+        public bool HasPlacedBet
+        {
+            get => hasPlacedBet;
+            set
+            {
+                if (hasPlacedBet == value) return;
+                hasPlacedBet = value;
+                animator.SetBool("HasPlacedBet", hasPlacedBet);
+            }
+        }
 
         public void _Setup(BetScreen screen, sbyte index, string marbleName, Color marbleColor)
         {
-            text.text = marbleName;
+            textName.text = marbleName;
             backgroundImage.color = marbleColor;
             marbleIndex = index;
             betScreen = screen;
@@ -30,14 +51,33 @@ namespace MarbleRace.Scripts
             betScreen._Press(marbleIndex);
         }
 
-        public void _HasPlacedBet(bool b)
-        {
-            animator.SetBool("HasPlacedBet", b);
-        }
-
         public void _SetIsLocked(bool b)
         {
             GetComponent<Button>().interactable = !b;
+        }
+        
+        public void _SetPlacement(sbyte place, int payout)
+        {
+            placement = place;
+            var colorPrefix = hasPlacedBet ? "<color=white>" : "<color=grey>";
+            textPlacement.text = colorPrefix + GetPlacementString(place);
+            textPayout.text = colorPrefix + payout + "$";
+        }
+
+        private string GetPlacementString(sbyte n)
+        {
+            var result = (n + 1).ToString();
+            switch (n)
+            {
+                case 0:
+                    return result + "st";
+                case 1:
+                    return result + "nd";
+                case 2:
+                    return result + "rd";
+                default:
+                    return result + "th";
+            }
         }
     }
 }
