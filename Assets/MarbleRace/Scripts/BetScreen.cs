@@ -52,9 +52,9 @@ namespace MarbleRace.Scripts
 
             if (bet != -1) // Undo previous bet, if betting is still unlocked
             {
-                betButtons[index]._HasPlacedBet(false);
+                betButtons[bet]._HasPlacedBet(false);
             }
-
+            
             bet = index;
             betButtons[index]._HasPlacedBet(true);
 
