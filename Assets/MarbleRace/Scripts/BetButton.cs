@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 namespace MarbleRace.Scripts
 {
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class BetButton : UdonSharpBehaviour
     {
         [SerializeField] private Animator animator;

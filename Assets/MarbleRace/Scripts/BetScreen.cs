@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace MarbleRace.Scripts
 {
+    [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class BetScreen : UdonSharpBehaviour
     {
         [SerializeField] private BetButton[] betButtons;
@@ -12,6 +13,8 @@ namespace MarbleRace.Scripts
         /// Whether bets can be placed.
         /// </summary>
         [UdonSynced, FieldChangeCallback(nameof(IsLocked))] private bool isLocked = false;
+
+        private RaceManager raceManager;
 
         private bool IsLocked
         {
@@ -29,8 +32,9 @@ namespace MarbleRace.Scripts
         /// </summary>
         private sbyte bet = -1;
 
-        public void _Setup(int buttonIndex, string marbleName, Color marbleColor)
+        public void _Setup(RaceManager manager, int buttonIndex, string marbleName, Color marbleColor)
         {
+            raceManager = manager;
             betButtons[buttonIndex]._Setup(
                 this,
                 (sbyte) buttonIndex,
@@ -53,6 +57,8 @@ namespace MarbleRace.Scripts
 
             bet = index;
             betButtons[index]._HasPlacedBet(true);
+
+            raceManager._OnBetPlaced();
         }
 
         private void LockAllButtons(bool b)

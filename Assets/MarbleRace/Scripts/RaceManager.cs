@@ -40,7 +40,7 @@ namespace MarbleRace.Scripts
                 var marble = marbles[marbleIndex];
                 foreach (var betScreen in betScreens)
                 {
-                    betScreen._Setup(marbleIndex, marble.name, marble._GetColor());
+                    betScreen._Setup(this, marbleIndex, marble.name, marble._GetColor());
                 }
             }
         }
@@ -112,6 +112,11 @@ namespace MarbleRace.Scripts
             }
             
             Debug.Log($"Marble Race: {marble.gameObject.name} has finished in place {placement}!");
+        }
+
+        public void _OnBetPlaced()
+        {
+            Debug.Log("Marble Race: A player has placed a bet.");
         }
     }
 }
