@@ -61,6 +61,7 @@ namespace MarbleRace.Scripts
             CheckReferences();
             if (Networking.IsMaster) InitPlacement();
             SetupUI();
+            StartPreRace();
         }
 
         /// <summary>
@@ -99,16 +100,32 @@ namespace MarbleRace.Scripts
             OnRacePlacementChanged();
         }
 
-        [PublicAPI]
-        public void StartRace()
+        /// <summary>
+        /// Start the initial betting before the race begins.
+        /// After betting is concluded, the race begins.
+        /// </summary>
+        private void StartPreRace()
+        {
+            ResetBetScreens();
+            betScreens[0].HasBettingStarted = true;
+            SendCustomEventDelayedSeconds(nameof(_StartRace), 12f);
+        }
+
+        private void ResetBetScreens()
+        {
+            foreach (var betScreen in betScreens)
+            {
+                betScreen.HasBettingStarted = false;
+                betScreen.IsLocked = false;
+            }
+        }
+
+        public void _StartRace()
         {
             // if (isRaceRunning) return; TODO For debugging this is disabled.
-            if (!Networking.IsMaster) SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(StartRace));
-            else
-            {
-                RespawnMarbles();
-                InitPlacement();
-            }
+            if (!Networking.IsMaster) return;
+            RespawnMarbles();
+            InitPlacement();
         }
         
         private void RespawnMarbles()
@@ -164,8 +181,7 @@ namespace MarbleRace.Scripts
 
         public void _OnBetPlaced()
         {
-            Debug.Log("Marble Race: A player has placed a bet. Starting race because betting ain't done yet.");
-            StartRace();
+            Debug.Log("Marble Race: A player has placed a bet.");
         }
     }
 }

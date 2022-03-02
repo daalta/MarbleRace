@@ -1,4 +1,6 @@
-﻿using UdonSharp;
+﻿using System;
+using TMPro;
+using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,24 +10,56 @@ namespace MarbleRace.Scripts
     public class BetScreen : UdonSharpBehaviour
     {
         [SerializeField] private BetButton[] betButtons;
-
+        [SerializeField] private TextMeshProUGUI statusText;
+        //[SerializeField] private Animator animator;
+        
         /// <summary>
         /// Whether bets can be placed.
         /// </summary>
         [UdonSynced, FieldChangeCallback(nameof(IsLocked))] private bool isLocked = false;
 
-        private RaceManager raceManager;
-
-        private bool IsLocked
+        public bool IsLocked
         {
             get => isLocked;
             set
             {
-                if (isLocked == value) return;
+                if (IsLocked == value) return;
                 isLocked = value;
-                LockAllButtons(isLocked);
+                LockAllButtons(IsLocked);
+                UpdateStatusText();
             }
         }
+
+        [UdonSynced, FieldChangeCallback(nameof(HasBettingStarted))] private bool hasBettingStarted = false;
+        
+        public bool HasBettingStarted
+        {
+            get => hasBettingStarted;
+            set
+            {
+                if (HasBettingStarted == value) return;
+                hasBettingStarted = value;
+                _StartBettingTimer();
+                //animator.SetBool("HasBettingStarted", HasBettingStarted);
+            }
+        }
+
+        private int bettingTimer;
+
+        public void _StartBettingTimer()
+        {
+            if (bettingTimer == 0) bettingTimer = 10;
+            UpdateStatusText();
+            bettingTimer--;
+            if (bettingTimer == 0)
+            {
+                IsLocked = true;
+                return;
+            }
+            SendCustomEventDelayedSeconds(nameof(_StartBettingTimer), 1f);
+        }
+
+        private RaceManager raceManager;
         
         /// <summary>
         /// Index of the marble the local player has bet on.
@@ -40,11 +74,18 @@ namespace MarbleRace.Scripts
                 (sbyte) buttonIndex,
                 marbleName,
                 marbleColor);
+            UpdateStatusText();
         }
 
         public void _Press(sbyte index)
         {
-            if (isLocked)
+            if (!HasBettingStarted)
+            {
+                Debug.Log("Marble Race: Bets have not yet started, but player tried to bet.");
+                return;
+            }
+            
+            if (IsLocked)
             {
                 Debug.Log("Marble Race: Betting is locked, but player tried to bet.");
                 return;
@@ -72,6 +113,12 @@ namespace MarbleRace.Scripts
         public void _Finish(sbyte marbleIndex, sbyte placement, int payout)
         {
             betButtons[marbleIndex]._SetPlacement(placement, payout);
+        }
+
+        private void UpdateStatusText()
+        {
+            if (!HasBettingStarted) statusText.text = "Not<br>started";
+            else statusText.text = IsLocked ? "<i>Bets<br>closed</i>" : $"{bettingTimer}<br>Bet!!";
         }
     }
 }
