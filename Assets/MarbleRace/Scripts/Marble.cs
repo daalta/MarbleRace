@@ -58,6 +58,8 @@ namespace MarbleRace.Scripts
             if (!Networking.IsMaster) return;
             rigidbody.position = spawnLocation;
             rigidbody.velocity = Vector2.zero;
+            // If physics are off, respawn won't work unless transform.position is also set.
+            transform.position = new Vector3(spawnLocation.x, spawnLocation.y, transform.position.z);
         }
 
         public void _SetSimulatePhysics(bool b)

@@ -39,6 +39,7 @@ namespace MarbleRace.Scripts
             {
                 if (HasBettingStarted == value) return;
                 hasBettingStarted = value;
+                if (value) Debug.Log("Marble Race: Betting has " + (HasBettingStarted ? "started!" : "closed."));
                 _StartBettingTimer();
                 //animator.SetBool("HasBettingStarted", HasBettingStarted);
             }
@@ -49,8 +50,8 @@ namespace MarbleRace.Scripts
         public void _StartBettingTimer()
         {
             if (bettingTimer == 0) bettingTimer = 10;
+            else bettingTimer--;
             UpdateStatusText();
-            bettingTimer--;
             if (bettingTimer == 0)
             {
                 IsLocked = true;

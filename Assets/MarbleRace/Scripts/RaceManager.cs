@@ -23,6 +23,8 @@ namespace MarbleRace.Scripts
         /// </summary>
         [UdonSynced, FieldChangeCallback(nameof(RacePlacement))] private sbyte[] racePlacement;
 
+        [UdonSynced] private bool isGameRunning;
+
         public sbyte[] RacePlacement
         {
             get => racePlacement;
@@ -111,7 +113,9 @@ namespace MarbleRace.Scripts
             FreezeMarbles(true);
             ResetBetScreens();
             betScreens[0].HasBettingStarted = true;
+            isGameRunning = true;
             SendCustomEventDelayedSeconds(nameof(_StartRace), 12f);
+            RequestSerialization();
         }
 
         private void ResetBetScreens()
@@ -176,10 +180,7 @@ namespace MarbleRace.Scripts
 
             Debug.Log($"Marble Race: {marble.gameObject.name} has finished in place {placement}!");
 
-            if (placement == RacePlacement.Length - 1)
-            {
-                EndRace();
-            }
+            if (placement > 2 && isGameRunning) EndRace();
             
             RequestSerialization();
             OnRacePlacementChanged();
@@ -187,7 +188,8 @@ namespace MarbleRace.Scripts
 
         private void EndRace()
         {
-            Debug.Log("Marble Race: Race finished!");
+            Debug.Log("Marble Race: Top 3 have finished, race is over!");
+            isGameRunning = false;
             SendCustomEventDelayedSeconds(nameof(_StartPreRace), 10);
         }
 
