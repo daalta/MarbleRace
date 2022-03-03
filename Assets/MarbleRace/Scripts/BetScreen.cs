@@ -22,6 +22,8 @@ namespace MarbleRace.Scripts
         /// </summary>
         [UdonSynced, FieldChangeCallback(nameof(State))]private int state;
 
+        private uint bettingTime;
+
         public int State
         {
             get => state;
@@ -43,7 +45,7 @@ namespace MarbleRace.Scripts
             if (Networking.IsMaster) RequestSerialization();
         }
 
-        private int bettingTimer;
+        private uint bettingTimer;
 
         private void _StartBettingTimer()
         {
@@ -53,20 +55,21 @@ namespace MarbleRace.Scripts
                 return;
             }
 
-            bettingTimer = 10;
+            bettingTimer = bettingTime;
             _UpdateBettingTimer();
         }
         
         public void _UpdateBettingTimer()
         {
-
-            bettingTimer--;
             UpdateStatusText();
             if (bettingTimer == 0)
             {
                 if (Networking.IsMaster) State = 3;
                 return;
             }
+            
+            bettingTimer--;
+            
             SendCustomEventDelayedSeconds(nameof(_UpdateBettingTimer), 1f);
         }
 
@@ -77,9 +80,14 @@ namespace MarbleRace.Scripts
         /// </summary>
         private sbyte bet = -1;
 
-        public void _Setup(RaceManager manager, int buttonIndex, string marbleName, Color marbleColor)
+        public void _Setup(RaceManager manager, uint timeToBet)
         {
             raceManager = manager;
+            bettingTime = timeToBet;
+        }
+
+        public void _SetupButton(int buttonIndex, string marbleName, Color marbleColor)
+        {
             betButtons[buttonIndex]._Setup(
                 this,
                 (sbyte) buttonIndex,

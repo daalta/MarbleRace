@@ -10,6 +10,11 @@ namespace MarbleRace.Scripts
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class RaceManager : UdonSharpBehaviour
     {
+        [Header("Race settings")]
+        [SerializeField, Tooltip("How much time players have to bet after betting as been started.")]
+        private uint bettingTime = 10;
+        
+        [Header("References")]
         [SerializeField] private Marble[] marbles;
         [SerializeField] private Spawn spawn;
         [SerializeField] private Finish finish;
@@ -73,12 +78,13 @@ namespace MarbleRace.Scripts
         /// </summary>
         private void SetupUI()
         {
-            for (var marbleIndex = 0; marbleIndex < marbles.Length; marbleIndex++)
+            foreach (var betScreen in betScreens)
             {
-                var marble = marbles[marbleIndex];
-                foreach (var betScreen in betScreens)
+                betScreen._Setup(this, bettingTime);
+                for (var marbleIndex = 0; marbleIndex < marbles.Length; marbleIndex++)
                 {
-                    betScreen._Setup(this, marbleIndex, marble.name, marble._GetColor());
+                    var marble = marbles[marbleIndex];
+                    betScreen._SetupButton(marbleIndex, marble.name, marble._GetColor());
                 }
             }
         }
@@ -91,6 +97,8 @@ namespace MarbleRace.Scripts
                 Debug.LogError("Marble Race: Spawn reference in RaceManager is null");
             if (finish == null)
                 Debug.LogError("Marble Race: Finish reference in RaceManager is null");
+            if (transform.rotation.y != 0)
+                Debug.LogWarning("Marble Race: Y rotation of the MarbleRace prefab / RaceManager script should be 0");
         }
 
         private void InitPlacement()

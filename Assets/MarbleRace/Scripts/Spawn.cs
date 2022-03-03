@@ -1,13 +1,12 @@
-﻿using System;
-using UdonSharp;
+﻿using UdonSharp;
 using UnityEngine;
 
 namespace MarbleRace.Scripts
 {
+    [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class Spawn : UdonSharpBehaviour
     {
         [SerializeField] private Transform[] marbleSpawns;
-        [SerializeField] private Animator startGameButton;
 
         private void Start()
         {
