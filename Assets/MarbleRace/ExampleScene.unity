@@ -1285,6 +1285,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: CourseNewAssetTest
       objectReference: {fileID: 0}
+    - target: {fileID: 7984525770467552415, guid: 762f6fceb9d6a61449ab2f50ba7ec9de,
+        type: 3}
+      propertyPath: serializedProgramAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3742bc0cf6a93e5459317df7b0079527,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 762f6fceb9d6a61449ab2f50ba7ec9de, type: 3}
 --- !u!4 &1344283197 stripped

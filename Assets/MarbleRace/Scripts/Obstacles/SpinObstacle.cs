@@ -17,7 +17,6 @@ namespace MarbleRace.Scripts
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.angularVelocity = spinSpeed;
-            transform.rotation = Quaternion.identity;
             _SendSyncedRotation();
         }
 
