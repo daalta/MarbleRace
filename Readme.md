@@ -50,6 +50,8 @@ If you'd like to understand how this prefab works, here's a brief overview of th
   - Each marble has a special `Marble` script for synchronizing its position for all players.
 - **Courses** is the entire racetrack between the start and finish. No fancy scripts here - it's all just 2D colliders. This is the easiest part of the prefab to tweak and remix.
 - **StartGameButton** starts the game. It calls `StartPreRace` on the `MarbleRace` script. You can customize the button.
+- **Physics2DSettings** lets you override some Unity 2D Physics settings. VRChat doesn't let you change them via your project settings, so a script like this is required.
+  - **Velocity** threshold is the minimum speed at which balls bounce. If a ball is slower than this, it will 'stick' to a surface. 
 
 # Credits
 - Models, Textures by [Hughesy](https://twitter.com/lachie_hughes)
