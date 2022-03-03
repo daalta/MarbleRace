@@ -194,6 +194,7 @@ namespace MarbleRace.Scripts
 
         public int _GetPayout(sbyte[] placements)
         {
+            if (betOnMarbleIndex == -1) return 0;
             var placement = placements[betOnMarbleIndex];
             return GetPayout(placement);
         }

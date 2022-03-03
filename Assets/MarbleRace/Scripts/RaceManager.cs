@@ -13,7 +13,7 @@ namespace MarbleRace.Scripts
         [Header("Race settings")]
         [SerializeField, Tooltip("How much time players have to bet after betting as been started.")]
         private uint bettingTime = 10;
-        
+
         [Header("References")]
         [SerializeField] private Marble[] marbles;
         [SerializeField] private Spawn spawn;
@@ -32,10 +32,37 @@ namespace MarbleRace.Scripts
 
         [UdonSynced, FieldChangeCallback(nameof(IsGameRunning))] private bool isGameRunning;
 
+        [UdonSynced, FieldChangeCallback(nameof(IsTimeForPayout))]
+        private bool isTimeForPayout;
+
+        public bool IsTimeForPayout
+        {
+            get => isTimeForPayout;
+            set
+            {
+                if (value == isTimeForPayout) return;
+                isTimeForPayout = value;
+                if (IsTimeForPayout) GivePlayerPayout();
+            }
+        }
+        
+        
         /// <summary>
         /// How much money the player has earned. Or lost!
         /// </summary>
         private int money;
+
+        private int Money
+        {
+            get => money;
+            set
+            {
+                if (value == money) return;
+                money = value;
+                Debug.Log("Marble Race: Player now has " + money + "$");
+                finish._SetMoney(Money);
+            }
+        }
 
         private bool IsGameRunning
         {
@@ -60,6 +87,7 @@ namespace MarbleRace.Scripts
 
         private void OnRacePlacementChanged()
         {
+            var highestPlacement = -1;
             for (sbyte marbleIndex = 0; marbleIndex < RacePlacement.Length; marbleIndex++)
             {
                 var placement = RacePlacement[marbleIndex];
@@ -67,6 +95,7 @@ namespace MarbleRace.Scripts
                 {
                     betScreen._SetPlacement(marbleIndex, placement);
                 }
+                if (placement > highestPlacement) highestPlacement = placement;
             }
         }
 
@@ -75,6 +104,7 @@ namespace MarbleRace.Scripts
             CheckReferences();
             if (Networking.IsMaster) InitPlacement();
             SetupUI();
+            finish.Setup(this);
         }
 
         /// <summary>
@@ -140,6 +170,7 @@ namespace MarbleRace.Scripts
             ResetBetScreens();
             betScreens[0]._StartBettingWithoutTimer();
             IsGameRunning = true;
+            IsTimeForPayout = false;
             RequestSerialization();
         }
 
@@ -222,13 +253,14 @@ namespace MarbleRace.Scripts
         {
             Debug.Log("Marble Race: Top 3 have finished, race is over!");
             IsGameRunning = false;
+            IsTimeForPayout = true;
             RequestSerialization();
             // TODO End betting if it hasn't already concluded
         }
 
         public void OnBetPlaced()
         {
-            Debug.Log("Marble Race: A player has placed a bet.");
+            if (betScreens[0].State > 1) return; // First bet screen has already been bet on.
             SendCustomEventDelayedSeconds(nameof(_StartRace), 10);
             if (!Networking.IsMaster) SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(OnBetPlaced));
             else
@@ -239,11 +271,14 @@ namespace MarbleRace.Scripts
 
         private void GivePlayerPayout()
         {
+            var newMoneyTotal = Money;
             foreach (var betScreen in betScreens)
             {
                 var payout = betScreen._GetPayout(racePlacement);
-                money += payout;
+                newMoneyTotal += payout;
             }
+
+            Money = newMoneyTotal;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using UdonSharp;
+﻿using System;
+using TMPro;
+using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 
@@ -7,16 +9,18 @@ namespace MarbleRace.Scripts
     [UdonBehaviourSyncMode(BehaviourSyncMode.None), RequireComponent(typeof(BoxCollider2D))]
     public class Finish : UdonSharpBehaviour
     {
+        [SerializeField, Tooltip("Shows how much money the player has.")] private TextMeshProUGUI textMoney;
+        
         private RaceManager raceManager;
 
         private void Start()
         {
-            raceManager = GetComponentInParent<RaceManager>();
-            if (raceManager == null)
-            {
-                Debug.LogError("Marble Race: Error! Finish couldn't find RaceManager. " +
-                               "RaceManager script should be on the parent GameObject of the Finish script.");
-            }
+            _SetMoney(0);
+        }
+
+        public void Setup(RaceManager r)
+        {
+            raceManager = r;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -30,6 +34,11 @@ namespace MarbleRace.Scripts
             }
 
             raceManager._Finish(marble);
+        }
+
+        public void _SetMoney(int money)
+        {
+            textMoney.text = "<size=50%>You<br>have</size><br>" + money.ToString() + "$";
         }
     }
 }
