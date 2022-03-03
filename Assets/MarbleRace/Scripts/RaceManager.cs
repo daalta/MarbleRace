@@ -197,7 +197,7 @@ namespace MarbleRace.Scripts
             Debug.Log(marbleIndex + " finished at " + placement);
             RacePlacement[marbleIndex] = placement;
 
-            if (placement > 2 && IsGameRunning) EndRace();
+            if (placement >= 2 && IsGameRunning) EndRace();
             
             RequestSerialization();
             OnRacePlacementChanged();
