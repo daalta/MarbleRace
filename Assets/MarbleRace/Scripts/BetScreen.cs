@@ -204,5 +204,11 @@ namespace MarbleRace.Scripts
             if (placement == 0 || placement < 0 ||placement >= payouts.Length) return -1;
             return payouts[placement];
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!Networking.IsMaster) return;
+            if (State == 0) State = 2;
+        }
     }
 }
