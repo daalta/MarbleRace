@@ -42,11 +42,19 @@ namespace MarbleRace.Scripts
 
         private void OnStateChanged()
         {
-            animator.SetInteger("State", state);
-            var isBettingClosed = state == 0 || state == 3; 
+            animator.SetInteger("State", State);
+            var isBettingClosed = State == 0 || State == 3; 
             LockAllButtons(isBettingClosed);
-            if (state == 0) Reset();
-            if (state == 2) _StartBettingTimer();
+            switch (State)
+            {
+                case 0:
+                case 1:
+                    Reset();
+                    break;
+                case 2:
+                    _StartBettingTimer();
+                    break;
+            }
             UpdateStatusText();
             if (Networking.IsMaster) RequestSerialization();
         }
@@ -149,11 +157,11 @@ namespace MarbleRace.Scripts
 
         private void Reset()
         {
-            State = 0;
             betOnMarbleIndex = (sbyte) -1;
             foreach (var button in betButtons)
             {
                 button._ClearPlacement();
+                button.HasPlacedBet = false;
             }
             RequestSerialization();
         }
