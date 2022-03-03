@@ -180,6 +180,7 @@ namespace MarbleRace.Scripts
 
         public int _GetPayout()
         {
+            return 0;
             return payouts[bet];
         }
     }
