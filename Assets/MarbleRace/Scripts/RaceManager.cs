@@ -18,7 +18,6 @@ namespace MarbleRace.Scripts
         [SerializeField] private Marble[] marbles;
         [SerializeField] private Spawn spawn;
         [SerializeField] private Finish finish;
-        [SerializeField] private BetScreen[] betScreens;
         [SerializeField] private Animator startGameButton;
         
 
@@ -84,6 +83,8 @@ namespace MarbleRace.Scripts
                 OnRacePlacementChanged();
             }
         }
+        
+        private BetScreen[] betScreens;
 
         private void OnRacePlacementChanged()
         {
@@ -101,6 +102,7 @@ namespace MarbleRace.Scripts
 
         private void Start()
         {
+            betScreens = GetComponentsInChildren<BetScreen>();
             CheckReferences();
             if (Networking.IsMaster) InitPlacement();
             SetupUI();
@@ -133,6 +135,9 @@ namespace MarbleRace.Scripts
                 Debug.LogError("Marble Race: Finish reference in RaceManager is null");
             if (transform.rotation.y != 0)
                 Debug.LogWarning("Marble Race: Y rotation of the MarbleRace prefab / RaceManager script should be 0");
+            if (betScreens.Length == 0)
+                Debug.LogWarning("Marble Race: No bet screens were found! Prefab needs at least one.");
+
         }
 
         private void InitPlacement()
