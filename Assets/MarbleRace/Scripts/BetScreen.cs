@@ -186,7 +186,7 @@ namespace MarbleRace.Scripts
 
         private int GetPayout(sbyte placement)
         {
-            if (placement == 0 || placement < 0 ||placement > payouts.Length) return -1;
+            if (placement == 0 || placement < 0 ||placement >= payouts.Length) return -1;
             return payouts[placement];
         }
     }

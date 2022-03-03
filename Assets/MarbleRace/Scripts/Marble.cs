@@ -7,8 +7,12 @@ namespace MarbleRace.Scripts
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class Marble : UdonSharpBehaviour
     {
+        [Header("Settings")]
         [SerializeField, Tooltip("Color of the ball. Used for UI stuff.")] private Color UIColor;
+        [Header("references")]
         [SerializeField] private new Rigidbody2D rigidbody;
+        [SerializeField] private new AudioSource audioSource;
+        
         [UdonSynced] private Vector2 position;
         [UdonSynced] private Vector2 velocity;
         [UdonSynced] private float angularVelocity;
@@ -27,19 +31,11 @@ namespace MarbleRace.Scripts
         
         private void OnCollisionEnter2D(Collision2D other)
         {
-            SendRigidbody();
+            audioSource.volume = Mathf.Min(1, rigidbody.velocity.magnitude * .5f);
+            audioSource.Play();
+            if (Networking.IsMaster) _SerializeRigidbodyData();
         }
-
-        private void SendRigidbody()
-        {
-            if (!Networking.IsMaster)
-            {
-                Debug.LogWarning("Marble race: Non-master tried to send rigidbody variables.");
-            }
-
-            _SerializeRigidbodyData();
-        }
-
+        
         public void _SerializeRigidbodyData()
         {
             position = rigidbody.position;
