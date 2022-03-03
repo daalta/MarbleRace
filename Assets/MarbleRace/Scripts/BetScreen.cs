@@ -10,6 +10,11 @@ namespace MarbleRace.Scripts
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class BetScreen : UdonSharpBehaviour
     {
+        [Header("Settings")]
+        [SerializeField, Tooltip("Money earned by guessing correctly. Default to -1$ if no value is given.")]
+        private int[] payouts = { 3, 2, 1};
+            
+        [Header("References")]
         [SerializeField] private BetButton[] betButtons;
         [SerializeField] private TextMeshProUGUI statusText;
         [SerializeField] private Animator animator;
@@ -85,7 +90,7 @@ namespace MarbleRace.Scripts
             raceManager = manager;
             bettingTime = timeToBet;
         }
-
+        
         public void _SetupButton(int buttonIndex, string marbleName, Color marbleColor)
         {
             betButtons[buttonIndex]._Setup(
@@ -129,9 +134,9 @@ namespace MarbleRace.Scripts
             }
         }
 
-        public void _SetPlacement(sbyte marbleIndex, sbyte placement, int payout)
+        public void _SetPlacement(sbyte marbleIndex, sbyte placement)
         {
-            betButtons[marbleIndex]._SetPlacement(placement, payout);
+            betButtons[marbleIndex]._SetPlacement(placement, payouts[placement]);
         }
 
         private void UpdateStatusText()
@@ -171,6 +176,11 @@ namespace MarbleRace.Scripts
             }
             
             State = 2;
+        }
+
+        public int _GetPayout()
+        {
+            return payouts[bet];
         }
     }
 }
