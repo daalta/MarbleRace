@@ -612,7 +612,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: bet
+      Data: betOnMarbleIndex
     - Name: $v
       Entry: 7
       Data: 42|UdonSharp.Compiler.FieldDefinition, UdonSharp.Editor
@@ -639,10 +639,10 @@ MonoBehaviour:
       Data: SystemSByte
     - Name: symbolOriginalName
       Entry: 1
-      Data: bet
+      Data: betOnMarbleIndex
     - Name: symbolUniqueName
       Entry: 1
-      Data: bet
+      Data: betOnMarbleIndex
     - Name: symbolDefaultValue
       Entry: 6
       Data: 

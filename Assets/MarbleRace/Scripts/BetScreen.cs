@@ -83,7 +83,7 @@ namespace MarbleRace.Scripts
         /// <summary>
         /// Index of the marble the local player has bet on.
         /// </summary>
-        private sbyte bet = -1;
+        private sbyte betOnMarbleIndex = -1;
 
         public void _Setup(RaceManager manager, uint timeToBet)
         {
@@ -115,12 +115,12 @@ namespace MarbleRace.Scripts
                 return;
             }
 
-            if (bet != -1) // Undo previous bet, if betting is still unlocked
+            if (betOnMarbleIndex != -1) // Undo previous bet, if betting is still unlocked
             {
-                betButtons[bet].HasPlacedBet = false;
+                betButtons[betOnMarbleIndex].HasPlacedBet = false;
             }
             
-            bet = index;
+            betOnMarbleIndex = index;
             betButtons[index].HasPlacedBet = true;
 
             raceManager.OnBetPlaced();
@@ -136,7 +136,7 @@ namespace MarbleRace.Scripts
 
         public void _SetPlacement(sbyte marbleIndex, sbyte placement)
         {
-            betButtons[marbleIndex]._SetPlacement(placement, payouts[placement]);
+            betButtons[marbleIndex]._SetPlacement(placement, GetPayout(placement));
         }
 
         private void UpdateStatusText()
@@ -149,7 +149,7 @@ namespace MarbleRace.Scripts
         public void _Reset()
         {
             State = 0;
-            bet = (sbyte) -1;
+            betOnMarbleIndex = (sbyte) -1;
             foreach (var button in betButtons)
             {
                 button._ClearPlacement();
@@ -178,10 +178,16 @@ namespace MarbleRace.Scripts
             State = 2;
         }
 
-        public int _GetPayout()
+        public int _GetPayout(sbyte[] placements)
         {
-            return 0;
-            return payouts[bet];
+            var placement = placements[betOnMarbleIndex];
+            return GetPayout(placement);
+        }
+
+        private int GetPayout(sbyte placement)
+        {
+            if (placement == 0 || placement < 0 ||placement > payouts.Length) return -1;
+            return payouts[placement];
         }
     }
 }

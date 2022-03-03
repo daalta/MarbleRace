@@ -241,7 +241,7 @@ namespace MarbleRace.Scripts
         {
             foreach (var betScreen in betScreens)
             {
-                var payout = betScreen._GetPayout();
+                var payout = betScreen._GetPayout(racePlacement);
                 money += payout;
             }
         }
