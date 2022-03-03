@@ -32,6 +32,11 @@ namespace MarbleRace.Scripts
 
         [UdonSynced, FieldChangeCallback(nameof(IsGameRunning))] private bool isGameRunning;
 
+        /// <summary>
+        /// How much money the player has earned. Or lost!
+        /// </summary>
+        private int money;
+
         private bool IsGameRunning
         {
             get => isGameRunning;
@@ -58,10 +63,9 @@ namespace MarbleRace.Scripts
             for (sbyte marbleIndex = 0; marbleIndex < RacePlacement.Length; marbleIndex++)
             {
                 var placement = RacePlacement[marbleIndex];
-                var payout = GetPayout(placement);
                 foreach (var betScreen in betScreens)
                 {
-                    betScreen._SetPlacement(marbleIndex, placement, payout);
+                    betScreen._SetPlacement(marbleIndex, placement);
                 }
             }
         }
@@ -222,17 +226,6 @@ namespace MarbleRace.Scripts
             // TODO End betting if it hasn't already concluded
         }
 
-        private int GetPayout(sbyte placement)
-        {
-            switch (placement)
-            {
-                case 0: return 3;
-                case 1: return 2;
-                case 2: return 1;
-                default: return -1;
-            }
-        }
-
         public void OnBetPlaced()
         {
             Debug.Log("Marble Race: A player has placed a bet.");
@@ -241,6 +234,15 @@ namespace MarbleRace.Scripts
             else
             {
                 betScreens[0]._StartBetting();
+            }
+        }
+
+        private void GivePlayerPayout()
+        {
+            foreach (var betScreen in betScreens)
+            {
+                var payout = betScreen._GetPayout();
+                money += payout;
             }
         }
     }
