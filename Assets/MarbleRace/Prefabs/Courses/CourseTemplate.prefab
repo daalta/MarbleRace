@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5546550190506730126}
   - component: {fileID: 8723869106545083332}
   m_Layer: 0
-  m_Name: CourseBlank
+  m_Name: CourseTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
