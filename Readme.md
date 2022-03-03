@@ -21,6 +21,17 @@ Prefab for VRChat.
 
 Unhappy with the layout of the race? Want to shorten something, or make the race longer? Re-arrange things as you like! All track pieces use Unity's [2D Physics](https://learn.unity.com/tutorial/2d-physics). It's all modular, so go nuts.
 
+For course prefabs, go to `MarbleRace/Prefabs/Courses`.
+
+If you'd like to make your own course & need some obstacles to get started, go to `MarbleRace/Prefabs/Obstacles`.
+
+## Advanced obstacles
+
+We made some scripts that let you create some *exciting* obstacles! Add them to any obstacle & tweak the settings.
+
+- `SpinObstacle` spins the obstacle at a fixed rate.
+- `DisappearingObstacle` disappears after a marble touches it. It respawns after some time. Great for roadblocks!
+
 ## Marbles
 To change the marbles, first find them in your scene hierarchy. You can tweak the following settings:
 - The **name** of the marble object determines how it will show up in the scoreboard.
