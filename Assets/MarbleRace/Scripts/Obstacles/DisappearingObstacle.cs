@@ -28,6 +28,11 @@ namespace MarbleRace.Scripts
             }
         }
 
+        private void OnEnable()
+        {
+            if (IsHidden) SendCustomEventDelayedSeconds(nameof(_Reset), respawnDelay); // Failsafe
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (!Networking.IsMaster) return;

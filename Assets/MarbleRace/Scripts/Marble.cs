@@ -1,4 +1,5 @@
-﻿using UdonSharp;
+﻿using System;
+using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 
@@ -28,7 +29,12 @@ namespace MarbleRace.Scripts
                 rigidbody.simulated = value;
             }
         }
-        
+
+        private void OnEnable()
+        {
+            OnDeserialization();
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             audioSource.volume = Mathf.Min(1, rigidbody.velocity.magnitude * .5f);

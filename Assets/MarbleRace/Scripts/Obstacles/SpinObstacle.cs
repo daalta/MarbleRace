@@ -1,4 +1,5 @@
-﻿using UdonSharp;
+﻿using System;
+using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
 
@@ -13,11 +14,17 @@ namespace MarbleRace.Scripts
 
         [UdonSynced] private float syncedRotation;
 
+        private bool isRotationSyncQueued = false;
+
         void Start()
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.angularVelocity = spinSpeed;
-            _SendSyncedRotation();
+        }
+
+        private void OnEnable()
+        {
+            _UpdateRotation();
         }
 
         public override void OnDeserialization()
@@ -25,7 +32,14 @@ namespace MarbleRace.Scripts
             SyncRotation();
         }
 
-        public void _SendSyncedRotation()
+        private void QueueRotationSync()
+        {
+            if (isRotationSyncQueued) return;
+            isRotationSyncQueued = true;
+            SendCustomEventDelayedSeconds(nameof(_UpdateRotation), 30f);
+        }
+
+        public void _UpdateRotation()
         {
             if (rigidbody2d == null) return;
             
@@ -34,8 +48,8 @@ namespace MarbleRace.Scripts
                 syncedRotation = rigidbody2d.rotation;
                 RequestSerialization();
             } else SyncRotation();
-            
-            SendCustomEventDelayedSeconds(nameof(_SendSyncedRotation), 30f);
+
+            QueueRotationSync();
         }
 
         private void SyncRotation()

@@ -29,6 +29,11 @@ namespace MarbleRace.Scripts
 
         private uint bettingTime;
 
+        private void OnEnable()
+        {
+            OnStateChanged();
+        }
+
         public int State
         {
             get => state;
@@ -76,6 +81,7 @@ namespace MarbleRace.Scripts
         public void _UpdateBettingTimer()
         {
             UpdateStatusText();
+            if (State != 2) return;
             if (bettingTimer == 0)
             {
                 if (Networking.IsMaster) State = 3;

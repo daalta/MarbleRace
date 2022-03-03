@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using TMPro;
 using UdonSharp;
 using UnityEngine;
@@ -27,8 +28,18 @@ namespace MarbleRace.Scripts
             {
                 if (hasPlacedBet == value) return;
                 hasPlacedBet = value;
-                animator.SetBool("HasPlacedBet", hasPlacedBet);
+                UpdateAnimator();
             }
+        }
+
+        private void OnEnable()
+        {
+            UpdateAnimator();
+        }
+        
+        private void UpdateAnimator()
+        {
+            animator.SetBool("HasPlacedBet", hasPlacedBet);
         }
 
         public void _Setup(BetScreen screen, sbyte index, string marbleName, Color marbleColor)
