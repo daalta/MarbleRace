@@ -66,6 +66,7 @@ namespace MarbleRace.Scripts
         {
             if (!Networking.IsMaster) return;
             SimulatePhysics = b;
+            audioSource.enabled = b;
         }
 
         public Color _GetColor()
