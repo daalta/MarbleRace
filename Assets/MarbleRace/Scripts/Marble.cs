@@ -25,6 +25,7 @@ namespace MarbleRace.Scripts
             set
             {
                 if (value == simulatePhysics) return;
+                audioSource.enabled = value;
                 simulatePhysics = value;
                 rigidbody.simulated = value;
             }
@@ -72,7 +73,6 @@ namespace MarbleRace.Scripts
         {
             if (!Networking.IsMaster) return;
             SimulatePhysics = b;
-            audioSource.enabled = b;
         }
 
         public Color _GetColor()
