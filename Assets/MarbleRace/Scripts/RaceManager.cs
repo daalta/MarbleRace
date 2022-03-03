@@ -147,7 +147,7 @@ namespace MarbleRace.Scripts
         {
             foreach (var betScreen in betScreens)
             {
-                betScreen._Reset();
+                betScreen.State = 0;
             }
         }
 

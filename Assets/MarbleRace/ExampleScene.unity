@@ -517,17 +517,17 @@ MonoBehaviour:
   DynamicMaterials:
   - {fileID: 2100000, guid: 6f8fcf2fdf4830e47ae4b3d5e738bfd1, type: 2}
   - {fileID: 2100000, guid: 2db0985e4485634439a18686acd21f3d, type: 2}
-  - {fileID: 2100000, guid: 2926729c38d0a814ca04791e4b56f9d7, type: 2}
-  - {fileID: 2100000, guid: 040c3925b03a5534e8dd190c67c92ddb, type: 2}
-  - {fileID: 2100000, guid: 0f5292ca2c1c70049bac38dce0715f08, type: 2}
-  - {fileID: 2100000, guid: 371408272249aa1408d71730bd316758, type: 2}
   - {fileID: 2100000, guid: 1c1a8df16bc7bb041970d6a1b84b0529, type: 2}
+  - {fileID: 2100000, guid: 040c3925b03a5534e8dd190c67c92ddb, type: 2}
   - {fileID: 2100000, guid: d518574684a7d1440b2cfa854173d4e6, type: 2}
-  - {fileID: 2100000, guid: 57e6348c22d834f469072962b6d805ed, type: 2}
-  - {fileID: 2100000, guid: 1a9ba9c0ab4b1c943906e68c2b621b58, type: 2}
-  - {fileID: 2100000, guid: ebd27574b872a164ebe42bc20f8c4c2b, type: 2}
   - {fileID: 2100000, guid: 2c27bcc15c146e84bab72b562230027b, type: 2}
   - {fileID: 2100000, guid: 0f056bba7d5ad4547b2c0917598b0e1a, type: 2}
+  - {fileID: 2100000, guid: 57e6348c22d834f469072962b6d805ed, type: 2}
+  - {fileID: 2100000, guid: 0f5292ca2c1c70049bac38dce0715f08, type: 2}
+  - {fileID: 2100000, guid: 2926729c38d0a814ca04791e4b56f9d7, type: 2}
+  - {fileID: 2100000, guid: 371408272249aa1408d71730bd316758, type: 2}
+  - {fileID: 2100000, guid: 1a9ba9c0ab4b1c943906e68c2b621b58, type: 2}
+  - {fileID: 2100000, guid: ebd27574b872a164ebe42bc20f8c4c2b, type: 2}
   - {fileID: 723496057387062996, guid: 50b44c1052aadfd4288cf7e947b42be2, type: 3}
   LightMapsNear: []
   LightMapsFar: []
@@ -1287,6 +1287,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: CourseNewAssetTest
       objectReference: {fileID: 0}
+    - target: {fileID: 3052399510616352049, guid: 762f6fceb9d6a61449ab2f50ba7ec9de,
+        type: 3}
+      propertyPath: serializedProgramAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3742bc0cf6a93e5459317df7b0079527,
+        type: 2}
+    - target: {fileID: 4979687693026921862, guid: 762f6fceb9d6a61449ab2f50ba7ec9de,
+        type: 3}
+      propertyPath: serializedProgramAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3742bc0cf6a93e5459317df7b0079527,
+        type: 2}
+    - target: {fileID: 5051516241284087412, guid: 762f6fceb9d6a61449ab2f50ba7ec9de,
+        type: 3}
+      propertyPath: serializedProgramAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3742bc0cf6a93e5459317df7b0079527,
+        type: 2}
     - target: {fileID: 7984525770467552415, guid: 762f6fceb9d6a61449ab2f50ba7ec9de,
         type: 3}
       propertyPath: serializedProgramAsset
@@ -2401,7 +2419,7 @@ PrefabInstance:
     - target: {fileID: 3856951252896341305, guid: 0ae077723019e3d4395ead6ea3f48dcd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.991
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3856951252896341305, guid: 0ae077723019e3d4395ead6ea3f48dcd,
         type: 3}

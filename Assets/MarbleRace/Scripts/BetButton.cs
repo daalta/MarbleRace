@@ -64,6 +64,7 @@ namespace MarbleRace.Scripts
 
         public void _ClearPlacement()
         {
+            HasPlacedBet = false;
             textPlacement.text = "";
             textPayout.text = "";
         }
