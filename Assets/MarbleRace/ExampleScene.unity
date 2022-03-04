@@ -181,8 +181,9 @@ MonoBehaviour:
 
     (Master should not press this!)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4cfb74bad28aef40af7fd5134cb1d2d, type: 2}
+  m_sharedMaterial: {fileID: -6126680355746272520, guid: f4cfb74bad28aef40af7fd5134cb1d2d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1890,8 +1891,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start Race
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f4cfb74bad28aef40af7fd5134cb1d2d, type: 2}
+  m_sharedMaterial: {fileID: -6126680355746272520, guid: f4cfb74bad28aef40af7fd5134cb1d2d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3662,6 +3664,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779424593234872105, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779424593234872105, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_UseGraphicAlpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779424593234872105, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_EffectDistance.x
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 5120301067416380916, guid: c4fd90117b9d3e24daf72ec5133a6e82,
         type: 3}
