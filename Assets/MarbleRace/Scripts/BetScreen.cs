@@ -2,6 +2,7 @@
 using TMPro;
 using UdonSharp;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VRC.SDKBase;
 
@@ -16,7 +17,8 @@ namespace MarbleRace.Scripts
             
         [Header("References")]
         [SerializeField] private BetButton[] betButtons;
-        [SerializeField] private TextMeshProUGUI statusText;
+        [SerializeField] private TextMeshProUGUI textStatus;
+        [SerializeField] private TextMeshProUGUI textPayoutInfo;
         [SerializeField] private Animator animator;
 
         /// <summary>
@@ -105,8 +107,22 @@ namespace MarbleRace.Scripts
         {
             raceManager = manager;
             bettingTime = timeToBet;
+            SetupPayoutInfo();
         }
-        
+
+        private void SetupPayoutInfo()
+        {
+            var result = "Payouts";
+            for (sbyte placementIndex = 0; placementIndex <= payouts.Length; placementIndex++)
+            {
+                var payout = GetPayout(placementIndex);
+                var placementText = _GetPlacementString(placementIndex);
+                result += $"<br>{placementText}\t{payout}$";
+            }
+
+            textPayoutInfo.text = result;
+        }
+
         public void _SetupButton(int buttonIndex, string marbleName, Color marbleColor)
         {
             betButtons[buttonIndex]._Setup(
@@ -160,28 +176,28 @@ namespace MarbleRace.Scripts
             switch (State)
             {
                 case 0:
-                    statusText.text = "Not<br>started";
+                    textStatus.text = "Not<br>started";
                     break;
                 case 1:
-                    statusText.text = "Click<br>to bet!";
+                    textStatus.text = "Click<br>to bet!";
                     break;
                 case 2:
-                    statusText.text = $"{bettingTimer - 1}s<br>to bet!";
+                    textStatus.text = $"{bettingTimer - 1}s<br>to bet!";
                     break;
                 case 3:
-                    statusText.text = "<i>Bets<br>closed</i>";
+                    textStatus.text = "<i>Bets<br>closed</i>";
                     break;
                 case 4:
                     if (betOnMarbleIndex == -1)
                     {
-                        statusText.text = "<i>No<br>bet</i>";
+                        textStatus.text = "<i>No<br>bet</i>";
                         return;
                     }
 
                     var placement = raceManager.RacePlacement[betOnMarbleIndex];
                     var payout = GetPayout(placement);
                     var prefix = "<color=" + (payout > 0 ? "green>+" : payout == 0? "white>" : "red>");
-                    statusText.text = $"{_GetPlacementString(placement)}<br>{prefix}{payout}$</color>";
+                    textStatus.text = $"{_GetPlacementString(placement)}<br>{prefix}{payout}$</color>";
                     break;
             }
         }
