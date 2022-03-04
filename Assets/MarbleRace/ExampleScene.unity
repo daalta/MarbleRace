@@ -783,18 +783,20 @@ MonoBehaviour:
   DynamicPrefabs: []
   DynamicMaterials:
   - {fileID: 2100000, guid: 6f8fcf2fdf4830e47ae4b3d5e738bfd1, type: 2}
-  - {fileID: 2100000, guid: 2db0985e4485634439a18686acd21f3d, type: 2}
   - {fileID: 2100000, guid: 0f5292ca2c1c70049bac38dce0715f08, type: 2}
   - {fileID: 2100000, guid: 2926729c38d0a814ca04791e4b56f9d7, type: 2}
-  - {fileID: 2100000, guid: 1c1a8df16bc7bb041970d6a1b84b0529, type: 2}
-  - {fileID: 2100000, guid: 2c27bcc15c146e84bab72b562230027b, type: 2}
-  - {fileID: 2100000, guid: 0f056bba7d5ad4547b2c0917598b0e1a, type: 2}
-  - {fileID: 2100000, guid: d518574684a7d1440b2cfa854173d4e6, type: 2}
+  - {fileID: 2100000, guid: 2db0985e4485634439a18686acd21f3d, type: 2}
+  - {fileID: 2100000, guid: 3bcb6b064c2b1314694a5c16acba80bf, type: 2}
+  - {fileID: -8067726398312463513, guid: d61c5e031c47a2848a95a28e25839279, type: 3}
+  - {fileID: -6755336268801109596, guid: d61c5e031c47a2848a95a28e25839279, type: 3}
   - {fileID: 2100000, guid: 371408272249aa1408d71730bd316758, type: 2}
-  - {fileID: 2100000, guid: 040c3925b03a5534e8dd190c67c92ddb, type: 2}
-  - {fileID: 2100000, guid: ebd27574b872a164ebe42bc20f8c4c2b, type: 2}
+  - {fileID: 2100000, guid: 1c1a8df16bc7bb041970d6a1b84b0529, type: 2}
+  - {fileID: 2100000, guid: d518574684a7d1440b2cfa854173d4e6, type: 2}
   - {fileID: 2100000, guid: 57e6348c22d834f469072962b6d805ed, type: 2}
   - {fileID: 2100000, guid: 1a9ba9c0ab4b1c943906e68c2b621b58, type: 2}
+  - {fileID: 2100000, guid: ebd27574b872a164ebe42bc20f8c4c2b, type: 2}
+  - {fileID: 2100000, guid: 2c27bcc15c146e84bab72b562230027b, type: 2}
+  - {fileID: 2100000, guid: 0f056bba7d5ad4547b2c0917598b0e1a, type: 2}
   - {fileID: 723496057387062996, guid: 50b44c1052aadfd4288cf7e947b42be2, type: 3}
   LightMapsNear: []
   LightMapsFar: []
@@ -1481,7 +1483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1266481181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3028,6 +3030,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 726805773176195715, guid: af9000602fb0ea341b083ca6fdc18063,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 993163425914317641, guid: af9000602fb0ea341b083ca6fdc18063,
         type: 3}
       propertyPath: m_RootOrder
@@ -3704,6 +3711,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120301068358014884, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 173.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5120301068358014884, guid: c4fd90117b9d3e24daf72ec5133a6e82,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5887889306958424817, guid: c4fd90117b9d3e24daf72ec5133a6e82,
         type: 3}

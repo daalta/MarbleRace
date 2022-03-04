@@ -24,6 +24,7 @@ namespace MarbleRace.Scripts
         /// 1 = Betting open (no timer)
         /// 2 = Betting open (timer running)
         /// 3 = Betting over (timer ran out), show payout if available
+        /// 4 = Game is over, show payout if available
         /// </summary>
         [UdonSynced, FieldChangeCallback(nameof(State))]private int state;
 
@@ -48,7 +49,7 @@ namespace MarbleRace.Scripts
         private void OnStateChanged()
         {
             animator.SetInteger("State", State);
-            var isBettingClosed = State == 0 || State == 3; 
+            var isBettingClosed = State == 0 || State >= 3; 
             LockAllButtons(isBettingClosed);
             switch (State)
             {
@@ -156,9 +157,33 @@ namespace MarbleRace.Scripts
 
         private void UpdateStatusText()
         {
-            if (State == 0) statusText.text = "Not<br>started";
-            if (State == 1) statusText.text = "Click<br>to bet!";
-            else statusText.text = State == 3 ? "<i>Bets<br>closed</i>" : $"{bettingTimer-1}s<br>to bet";
+            switch (State)
+            {
+                case 0:
+                    statusText.text = "Not<br>started";
+                    break;
+                case 1:
+                    statusText.text = "Click<br>to bet!";
+                    break;
+                case 2:
+                    statusText.text = $"{bettingTimer - 1}s<br>to bet!";
+                    break;
+                case 3:
+                    statusText.text = "<i>Bets<br>closed</i>";
+                    break;
+                case 4:
+                    if (betOnMarbleIndex == -1)
+                    {
+                        statusText.text = "<i>No<br>bet</i>";
+                        return;
+                    }
+
+                    var placement = raceManager.RacePlacement[betOnMarbleIndex];
+                    var payout = GetPayout(placement);
+                    var prefix = "<color=" + (payout > 0 ? "green>+" : payout == 0? "white>" : "red>");
+                    statusText.text = $"{_GetPlacementString(placement)}<br>{prefix}{payout}$</color>";
+                    break;
+            }
         }
 
         private void Reset()
@@ -209,6 +234,30 @@ namespace MarbleRace.Scripts
         {
             if (!Networking.IsMaster) return;
             if (State == 0) State = 2;
+        }
+
+        public void _ShowResultScreen()
+        {
+            if (State > 0) State = 4;
+            else if (State == 4) OnStateChanged(); // Might need to show final placement for late finishes
+        }
+
+        public string _GetPlacementString(sbyte n)
+        {
+            var result = (n + 1).ToString();
+            switch (n)
+            {
+                case -1:
+                    return "<color=white>Lost!</color>"; // Happens when marble hasn't finished but race is over
+                case 0:
+                    return $"<color=yellow>{result}st</color>";
+                case 1:
+                    return $"<color=grey>{result}nd</color>";
+                case 2:
+                    return $"<color=orange>{result}rd</color>";
+                default:
+                    return $"<color=white>{result}th</color>";
+            }
         }
     }
 }

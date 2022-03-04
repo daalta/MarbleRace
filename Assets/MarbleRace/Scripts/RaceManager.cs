@@ -70,7 +70,20 @@ namespace MarbleRace.Scripts
             {
                 if (IsGameRunning == value) return;
                 isGameRunning = value;
-                startGameButton.SetBool("IsGameRunning", IsGameRunning);
+                OnIsGameRunningChanged();
+            }
+        }
+
+        private void OnIsGameRunningChanged()
+        {
+            startGameButton.SetBool("IsGameRunning", IsGameRunning);
+        }
+
+        private void ShowBetResultScreen()
+        {
+            foreach (var betScreen in betScreens)
+            {
+                betScreen._ShowResultScreen();
             }
         }
 
@@ -234,6 +247,7 @@ namespace MarbleRace.Scripts
             RacePlacement[marbleIndex] = placement;
 
             if (placement >= 2 && IsGameRunning) EndRace();
+            if (!IsGameRunning) ShowBetResultScreen();
             
             RequestSerialization();
             OnRacePlacementChanged();

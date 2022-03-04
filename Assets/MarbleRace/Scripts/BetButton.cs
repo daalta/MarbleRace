@@ -48,6 +48,19 @@ namespace MarbleRace.Scripts
             backgroundImage.color = marbleColor;
             marbleIndex = index;
             betScreen = screen;
+            SetTextColor(GetTextColor(marbleColor));
+        }
+
+        private void SetTextColor(Color textColor)
+        {
+            textName.color = textColor;
+            textPlacement.color = textColor;
+            textPayout.color = textColor;
+        }
+
+        private Color GetTextColor(Color marbleColor)
+        {
+            return marbleColor.grayscale > 0.5f ? Color.black : Color.white;
         }
 
         [PublicAPI]
@@ -81,18 +94,9 @@ namespace MarbleRace.Scripts
 
         private string GetPlacementString(sbyte n)
         {
-            var result = (n + 1).ToString();
-            switch (n)
-            {
-                case 0:
-                    return result + "st";
-                case 1:
-                    return result + "nd";
-                case 2:
-                    return result + "rd";
-                default:
-                    return result + "th";
-            }
+            if (n < 0) return "";
+            if (betScreen == null) return "";
+            return betScreen._GetPlacementString(n);
         }
     }
 }
