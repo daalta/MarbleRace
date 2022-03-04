@@ -252,11 +252,11 @@ namespace MarbleRace.Scripts
                 case 0:
                     return $"<color=yellow>{result}st</color>";
                 case 1:
-                    return $"<color=grey>{result}nd</color>";
+                    return $"<color=white>{result}nd</color>";
                 case 2:
                     return $"<color=orange>{result}rd</color>";
                 default:
-                    return $"<color=white>{result}th</color>";
+                    return $"<color=red>{result}th</color>";
             }
         }
     }
