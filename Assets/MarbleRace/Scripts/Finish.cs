@@ -40,5 +40,7 @@ namespace MarbleRace.Scripts
         {
             textMoney.text = "<size=50%>You<br>have</size><br>" + money.ToString() + "$";
         }
+        
+        
     }
 }
