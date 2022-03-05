@@ -297,11 +297,11 @@ AreaEffector2D:
     m_Bits: 4294967295
   m_UseGlobalAngle: 0
   m_ForceAngle: 90
-  m_ForceMagnitude: 2.65
+  m_ForceMagnitude: 3
   m_ForceVariation: 0
   m_ForceTarget: 0
-  m_Drag: 1
-  m_AngularDrag: 0.05
+  m_Drag: 0
+  m_AngularDrag: 0
 --- !u!61 &7480856318779096316
 BoxCollider2D:
   m_ObjectHideFlags: 0
