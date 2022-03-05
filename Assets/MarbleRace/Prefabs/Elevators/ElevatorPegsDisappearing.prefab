@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 819343845586564298}
   - component: {fileID: 7560323009021159093}
   - component: {fileID: 7703906825170104198}
-  - component: {fileID: 7703906825170104199}
   - component: {fileID: 7367792699905614025}
   - component: {fileID: 3310295662736327135}
+  - component: {fileID: 6536952753968681436}
   m_Layer: 0
   m_Name: ElevatorPegsDisappearing
   m_TagString: Untagged
@@ -157,32 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.05}
   m_EdgeRadius: 0
---- !u!61 &7703906825170104199
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88399202451558000}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.25, y: 2.475}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.05}
-  m_EdgeRadius: 0
 --- !u!60 &7367792699905614025
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -241,6 +215,35 @@ PolygonCollider2D:
       - {x: 0.45, y: 2.2}
       - {x: 0.45, y: 0}
       - {x: 0.5, y: 0}
+--- !u!60 &6536952753968681436
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88399202451558000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5, y: 2.5}
+      - {x: 0, y: 2.45}
+      - {x: 0, y: 1.95}
+      - {x: 0.5, y: 2.45}
 --- !u!1 &4129849011953152938
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &993163425914317641
 Transform:
@@ -261,7 +261,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7480856318779096317
 Transform:
@@ -334,6 +334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -410,6 +415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -484,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -560,6 +575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -634,6 +654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -710,6 +735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -784,6 +814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -860,6 +895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -934,6 +974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -1010,6 +1055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1084,6 +1134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -1160,6 +1215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1234,6 +1294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -1310,6 +1375,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1384,6 +1454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -1460,6 +1535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1534,6 +1614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -1633,6 +1718,36 @@ PrefabInstance:
     - target: {fileID: 1166593979387268792, guid: cda496a22b0509a45acbd2702c9e1543,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352664448261706343, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352664448326289775, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352664448811745742, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352664448855790396, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352664448921297910, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752532352292434380, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937914839454935355, guid: cda496a22b0509a45acbd2702c9e1543,
@@ -1775,10 +1890,45 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -176.63303
       objectReference: {fileID: 0}
+    - target: {fileID: 4142646974487622073, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142646974553254577, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142646976118743568, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142646976171176162, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142646976239812648, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4341673336426283460, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4503207561788249396, guid: cda496a22b0509a45acbd2702c9e1543,
         type: 3}
       propertyPath: m_Name
       value: BetScreenElevator
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503207561788249396, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4503207561788249397, guid: cda496a22b0509a45acbd2702c9e1543,
         type: 3}
@@ -1885,6 +2035,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4503207562738247524, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4503207562738247525, guid: cda496a22b0509a45acbd2702c9e1543,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1908,6 +2063,71 @@ PrefabInstance:
     - target: {fileID: 4503207562738247525, guid: cda496a22b0509a45acbd2702c9e1543,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988701587973023122, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988701588042727066, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988701588370461699, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988701588496725563, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988701588570121417, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5162688717682033481, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741230170673137209, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001386233424925889, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001386233506711091, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001386233624781835, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001386233952390802, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7001386234022155674, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7211653007885493735, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8479366265321585726, guid: cda496a22b0509a45acbd2702c9e1543,
@@ -1954,6 +2174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2030,6 +2255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2104,6 +2334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2180,6 +2415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2254,6 +2494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2330,6 +2575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2404,6 +2654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2480,6 +2735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2554,6 +2814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2630,6 +2895,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2704,6 +2974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2780,6 +3055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2854,6 +3134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -2930,6 +3215,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3004,6 +3294,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -3080,6 +3375,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3154,6 +3454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -3230,6 +3535,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3304,6 +3614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -3380,6 +3695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3454,6 +3774,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -3530,6 +3855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3604,6 +3934,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -3680,6 +4015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3754,6 +4094,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
@@ -3830,6 +4175,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3905,6 +4255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PegDisappearing (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3979,6 +4334,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PegDisappearing (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695935845170791458, guid: 2c3bf946ee047ab429722ba578d26e9f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 8695935845170791459, guid: 2c3bf946ee047ab429722ba578d26e9f,
         type: 3}

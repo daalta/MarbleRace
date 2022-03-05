@@ -451,6 +451,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4503207561788249397}
     m_Modifications:
+    - target: {fileID: 174552527572950707, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835426385735355, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864730384311788982, guid: 047d73d14f9676b448fea161ae3a4f31,
         type: 3}
       propertyPath: _syncMethod
@@ -581,6 +591,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetButton
       objectReference: {fileID: 0}
+    - target: {fileID: 6501062952039021200, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178651341978261838, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d73d14f9676b448fea161ae3a4f31, type: 3}
 --- !u!224 &8479366265321585726 stripped
@@ -632,6 +652,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4503207561788249397}
     m_Modifications:
+    - target: {fileID: 174552527572950707, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835426385735355, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864730384311788982, guid: 047d73d14f9676b448fea161ae3a4f31,
         type: 3}
       propertyPath: _syncMethod
@@ -762,6 +792,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetButton (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6501062952039021200, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178651341978261838, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d73d14f9676b448fea161ae3a4f31, type: 3}
 --- !u!114 &3531460089099627250 stripped
@@ -813,6 +853,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4503207561788249397}
     m_Modifications:
+    - target: {fileID: 174552527572950707, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835426385735355, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864730384311788982, guid: 047d73d14f9676b448fea161ae3a4f31,
         type: 3}
       propertyPath: _syncMethod
@@ -943,6 +993,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetButton (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6501062952039021200, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178651341978261838, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d73d14f9676b448fea161ae3a4f31, type: 3}
 --- !u!224 &2937914841142552672 stripped
@@ -994,6 +1054,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4503207561788249397}
     m_Modifications:
+    - target: {fileID: 174552527572950707, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835426385735355, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864730384311788982, guid: 047d73d14f9676b448fea161ae3a4f31,
         type: 3}
       propertyPath: _syncMethod
@@ -1124,6 +1194,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetButton (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6501062952039021200, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178651341978261838, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d73d14f9676b448fea161ae3a4f31, type: 3}
 --- !u!114 &2361917779886874382 stripped
@@ -1175,6 +1255,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4503207561788249397}
     m_Modifications:
+    - target: {fileID: 174552527572950707, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835426385735355, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864730384311788982, guid: 047d73d14f9676b448fea161ae3a4f31,
         type: 3}
       propertyPath: _syncMethod
@@ -1305,6 +1395,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: BetButton (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6501062952039021200, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178651341978261838, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d73d14f9676b448fea161ae3a4f31, type: 3}
 --- !u!114 &3531460090719645857 stripped
@@ -1356,6 +1456,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4503207561788249397}
     m_Modifications:
+    - target: {fileID: 174552527572950707, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773835426385735355, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864730384311788982, guid: 047d73d14f9676b448fea161ae3a4f31,
         type: 3}
       propertyPath: _syncMethod
@@ -1485,6 +1595,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BetButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501062952039021200, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178651341978261838, guid: 047d73d14f9676b448fea161ae3a4f31,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047d73d14f9676b448fea161ae3a4f31, type: 3}
