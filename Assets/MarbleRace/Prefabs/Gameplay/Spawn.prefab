@@ -306,7 +306,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
@@ -314,7 +314,6 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 6f8fcf2fdf4830e47ae4b3d5e738bfd1, type: 2}
   - {fileID: 2100000, guid: 2926729c38d0a814ca04791e4b56f9d7, type: 2}
-  - {fileID: 2100000, guid: 0f5292ca2c1c70049bac38dce0715f08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
