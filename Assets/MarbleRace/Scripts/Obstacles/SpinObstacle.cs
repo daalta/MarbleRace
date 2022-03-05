@@ -20,6 +20,15 @@ namespace MarbleRace.Scripts
         {
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.angularVelocity = spinSpeed;
+            RotationFix();
+        }
+
+        /// <summary>
+        /// If this isn't done, the rigidbody freaks out. Very likely a Unity bug.
+        /// </summary>
+        private void RotationFix()
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         }
 
         private void OnEnable()
