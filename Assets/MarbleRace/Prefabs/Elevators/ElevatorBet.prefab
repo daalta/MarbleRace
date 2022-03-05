@@ -2067,6 +2067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3776473436208177081, guid: cda496a22b0509a45acbd2702c9e1543,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776473436208177081, guid: cda496a22b0509a45acbd2702c9e1543,
+        type: 3}
       propertyPath: m_Offset.y
       value: -176.63303
       objectReference: {fileID: 0}
