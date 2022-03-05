@@ -12,8 +12,8 @@ Prefab for VRChat.
 
 # Adding it to your scene
 1. Import the `MarbleRace.unitypackage`
-2. Drag `MarbleRace/Prefabs/MarbleRace` prefab into your scene.
-  - Unity may prompt you to import TextMeshPro.
+2. Drag `MarbleRace/Prefabs/MarbleRaceCoolExample` or `MarbleRaceTemplate` prefab into your scene.
+  - Unity may prompt you to import TextMeshPro. You may delete TextMeshPro's example font.
   - **Keep the the Y rotation at 0° or 180°.** The prefab uses Unity's 2D Physics and does not work correctly unless it it parallel to your scene's X axis.
 
 # Customization
@@ -41,14 +41,14 @@ To change the marbles, first find them in your scene hierarchy. You can tweak th
 
 ## Wait, what did I just drag into my scene?
 If you'd like to understand how this prefab works, here's a brief overview of the prefab's hierarchy after you drag it into your scene.
-- **MarbleRace** is a script controls the race. It has references to all other important objects. You *probably* don't need to touch this.
-- **Spawn** contains:
-  - A script and transforms for getting the marbles' starting locations
-  - A betting screen for the start of the race
-- **Finish** notifies the `MarbleRace` script if a marble has finished the race.
-- **Marbles** contains the marbles. Currently there's six, but we plan to add (easy) support for more marbles in the future. 
+- **MarbleRace** is a script controls the race. It has references to all other important objects. You *probably* don't need to touch this unless you want to rearrange the balls list.
+- **Marbles** contains the marbles. Currently there's six.
   - Each marble has a special `Marble` script for synchronizing its position for all players.
-- **Courses** is the entire racetrack between the start and finish. No fancy scripts here - it's all just 2D colliders. This is the easiest part of the prefab to tweak and remix.
+- **Courses** is the entire racetrack between the start and finish. It's mostly 2D colliders. This is the easiest part of the prefab to tweak and remix.
+  - **Spawn** contains:
+    - A script and transforms for getting the marbles' starting locations
+    - A betting screen for the start of the race
+  - **Finish** notifies the `MarbleRace` script if a marble has finished the race. 
 - **StartGameButton** starts the game. It calls `StartPreRace` on the `MarbleRace` script. You can customize the button.
 - **Physics2DSettings** lets you override some Unity 2D Physics settings. VRChat doesn't let you change them via your project settings, so a script like this is required.
   - **Velocity** threshold is the minimum speed at which balls bounce. If a ball is slower than this, it will 'stick' to a surface. 
