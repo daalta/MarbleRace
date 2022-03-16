@@ -5,6 +5,9 @@ Prefab for VRChat.
 - Bet on marbles and win or lose (useless, virtual) money!
 - Make your own courses - it's all modular!
 
+# Download
+Please check the [releases](https://github.com/daalta/MarbleRace/releases) page!
+
 # Requirements
 - [VRChat SDk 3](https://docs.vrchat.com/docs/setting-up-the-sdk)
 - [UdonSharp](github.com/MerlinVR)
