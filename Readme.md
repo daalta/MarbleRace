@@ -18,6 +18,7 @@ Please check the [releases](https://github.com/daalta/MarbleRace/releases) page!
 2. Drag `MarbleRace/Prefabs/MarbleRaceCoolExample` or `MarbleRaceTemplate` prefab into your scene.
   - Unity may prompt you to import TextMeshPro. You may delete TextMeshPro's example font.
   - **Keep the the Y rotation at 0° or 180°.** The prefab uses Unity's 2D Physics and does not work correctly unless it it parallel to your scene's X axis.
+  - 2D Physics interacts with 3D physics! Watch out for 3D collision, it might mess with the race track.
 
 # Customization
 ## Make your own track
