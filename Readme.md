@@ -57,6 +57,9 @@ If you'd like to understand how this prefab works, here's a brief overview of th
 - **Physics2DSettings** lets you override some Unity 2D Physics settings. VRChat doesn't let you change them via your project settings, so a script like this is required.
   - **Velocity** threshold is the minimum speed at which balls bounce. If a ball is slower than this, it will 'stick' to a surface. 
 
+## Known issues
+- Disabling the prefab is not something I've tested. It should for fine for non-masters, but the prefab might go *bazinga* if the master disables it.
+
 # Credits
 - Models, Textures by [Hughesy](https://twitter.com/lachie_hughes)
 - Code by [Faxmashine](twitter.com/faxmashine)
